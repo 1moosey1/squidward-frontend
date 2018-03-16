@@ -11,6 +11,12 @@ import { LoginService } from './services/login.service';
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 import { ProjectComponent } from './components/projects/project/project.component';
 import { NewProjectButtonComponent } from './components/projects/new-project-button/new-project-button.component';
+import { NewSprintButtonComponent } from './components/sprints/new-sprint-button/new-sprint-button.component';
+import { SprintListComponent } from './components/sprints/sprint-list/sprint-list.component';
+import { SprintComponent } from './components/sprints/sprint/sprint.component';
+import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
+import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
+import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
 
 
 @NgModule({
@@ -19,7 +25,13 @@ import { NewProjectButtonComponent } from './components/projects/new-project-but
     LoginComponent,
     ProjectListComponent,
     ProjectComponent,
-    NewProjectButtonComponent
+    NewProjectButtonComponent,
+    NewSprintButtonComponent,
+    SprintListComponent,
+    SprintComponent,
+    UserstoryListComponent,
+    UserstoryComponent,
+    NewUserstoryButtonComponent
   ],
   imports: [
     BrowserModule,
