@@ -3,6 +3,7 @@ import {HttpParams, HttpClient, HttpHeaders, HttpResponse } from '@angular/commo
 import { Observable } from 'rxjs/Observable';
 //we might need mapping might not depending on how you're doing things but this is the import
 import 'rxjs/add/operator/map';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,17 @@ import 'rxjs/add/operator/map';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public http: HttpClient) { 
+  constructor(public http: HttpClient, private loginService: LoginService) { 
     console.log("login service connected");
   }
 
   ngOnInit() {
+  }
+
+  onClick() {
+    this.loginService.login().subscribe(res => {
+      console.log(res);
+    });
   }
 
   //checking for github account in the database?? need more research.
