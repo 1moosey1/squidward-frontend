@@ -36,14 +36,14 @@ export class ProjectsService {
 
 
 //TODO: make this into different file.
-export class projects {
-  constructor(public user:string){}
-  project_id: number;
-  project_name: string;
-  start_date: Date;
-  end_date: Date;
-  // need to change the user to user class. (this will be the list of users)
-  Users: string;
-  owner: string;
+// export class projects {
+//   constructor(public user:string){}
+//   project_id: number;
+//   project_name: string;
+//   start_date: Date;
+//   end_date: Date;
+//   // need to change the user to user class. (this will be the list of users)
+//   Users: string;
+//   owner: string;
 
-}
+// }

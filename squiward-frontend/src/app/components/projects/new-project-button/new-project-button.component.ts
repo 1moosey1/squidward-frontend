@@ -12,7 +12,7 @@ export class NewProjectButtonComponent implements OnInit {
   private start_date;
   private end_date;
 
-  constructor(private projectService:ProjectsService) { }
+  constructor(public projectService: ProjectsService) { }
 
   ngOnInit() {
     //TODO: need the user information. get it from the cookie that you receieve from the backend
