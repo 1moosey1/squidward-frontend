@@ -1,3 +1,15 @@
-<p>
-  new-project-button works!
-</p>
+<form (submit)="createProject($event)">
+    <div>
+      <label>Project Name</label>
+      <input class="form-control" name="project_name" type="text" [(ngModel)]="project_name"/>
+      <small id="project_name" class="form-text text-muted">Enter The Project Name.</small>
+      <br/>
+      <label>Start Date</label>
+      <input class="form-control" name="start_date" type="date" [(ngModel)]="start_date"/>
+      <small id="start_date" class="form-text text-muted">Start Date</small>
+      <br/>
+      <label>End Date</label>
+      <input class="form-control" name="end_date" type="date" [(ngModel)]="end_date"/>
+      <small id="end_date" class="form-text text-muted">End Date</small>
+    </div>
+</form>
