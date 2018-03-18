@@ -21,8 +21,7 @@ export class NewProjectButtonComponent implements OnInit {
   createProject(e) {
     e.preventDefault();
     
-    //TODO: instead 1 need to pass in the owner object? looks like that's what's being accepeted in the backend.
-    //TODO: shouldn't it be accepting the id from the backend? 
+    //TODO: instead 1 need to pass in the ownerid (need login done)
     this.projectService.createNewProject(this.project_name, this.start_date, this.start_date,"1").subscribe(res => {
       console.log(res);
     })
