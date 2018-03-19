@@ -3,6 +3,7 @@
 }
 
 .btn-login {
+  color: var(--color-1);
   background-color: var(--color-5);
 }
 
