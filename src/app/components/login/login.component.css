@@ -1,0 +1,19 @@
+.login-page {
+  margin-top: 25px;
+}
+
+.btn-login {
+  background-color: var(--color-5);
+}
+
+.btn-login:hover {
+  background-color: var(--color-4);
+}
+
+.icon-align {
+  vertical-align: middle;
+}
+
+.text-login {
+  padding-left: 5px;
+}

@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class LoginService {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) {}
+  login() {
+    this.http.get('').toPromise()
+      .then()
+      .catch();
+  }
 }

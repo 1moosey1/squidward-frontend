@@ -1,11 +1,19 @@
-<body class="container">
-  <div>
-    <h1>Login</h1>
-  </div>
+<div class="row login-page">
+  <div class="col-md-12 text-center nopadding">
 
-  <div>
-    <a id="github-button" class="btn btn-block btn-social btn-github">
-      <i class="fa fa-github"></i> Sign in with GitHub
-  </a>
+    <div class="seaweed">
+      <h1>SQUIDWARD</h1>
+      <h3>Scrum Master Analysis Tool</h3>
+    </div>
+
+    <br/>
+
+    <div>
+      <button (click)="initiateLogin.login()" class="btn btn-login">
+        <i class="fa fa-2x fa-github icon-align"></i>
+        <span class="text-login">Sign in with GitHub</span>
+      </button>
+    </div>
+
   </div>
-</body>
+</div>
