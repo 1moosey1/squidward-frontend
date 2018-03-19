@@ -17,7 +17,7 @@ import { SprintComponent } from './components/sprints/sprint/sprint.component';
 import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
 import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
 import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
-import { ProjectService } from './services/project-service/project.service';
+import { ProjectsService } from './services/project-service/project.service';
 
 
 @NgModule({
@@ -41,7 +41,7 @@ import { ProjectService } from './services/project-service/project.service';
     FormsModule,
     RouterModule
   ],
-  providers: [LoginService, ProjectService],
+  providers: [LoginService, ProjectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
