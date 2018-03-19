@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
+import { HttpModule } from '@angular/http'
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule, Router} from '@angular/router'
 import { FormsModule } from '@angular/forms'
@@ -7,7 +8,7 @@ import { AppRoutesModule } from './/app-routes.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { LoginService } from './services/login.service';
+import { LoginService } from './services/LoginService/login.service';
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 import { ProjectComponent } from './components/projects/project/project.component';
 import { NewProjectButtonComponent } from './components/projects/new-project-button/new-project-button.component';
@@ -17,6 +18,7 @@ import { SprintComponent } from './components/sprints/sprint/sprint.component';
 import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
 import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
 import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
+import { ProjectsService } from './services/project-service/projects.service';
 
 
 @NgModule({
@@ -38,9 +40,10 @@ import { NewUserstoryButtonComponent } from './components/userstories/new-userst
     HttpClientModule,
     AppRoutesModule,
     FormsModule,
+    HttpModule,
     RouterModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, ProjectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
