@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { Routes, RouterModule } from '@angular/router';
 
 
 // Bootstrap in TypeScript
@@ -20,6 +21,13 @@ import { UserstoryComponent } from './components/userstories/userstory/userstory
 import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
 import { LoginService } from './services/login.service';
 
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'projects', component: ProjectComponent },
+  { path: 'sprints', component: SprintListComponent },
+  { path: 'userstories', component: UserstoryListComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -38,6 +46,7 @@ import { LoginService } from './services/login.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    RouterModule.forRoot(routes),
     NgbModule.forRoot()
   ],
   providers: [
