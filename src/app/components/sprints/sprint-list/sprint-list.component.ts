@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectsService } from '../../../services/project-service/project.service';
 
 @Component({
   selector: 'app-sprint-list',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sprint-list.component.css']
 })
 export class SprintListComponent implements OnInit {
+  private projectID;
+  private sprints;
 
-  constructor() { }
+  constructor(private projectService: ProjectsService) { }
 
   ngOnInit() {
+    this.projectID = this.projectService.getProjectID;
+  }
+
+  getListOfProjects() {
+    
   }
 
 }

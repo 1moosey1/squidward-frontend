@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/loginService/login.service';
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
-import { ProjectComponent } from './components/projects/project/project.component';
 import { NewProjectButtonComponent } from './components/projects/new-project-button/new-project-button.component';
 import { NewSprintButtonComponent } from './components/sprints/new-sprint-button/new-sprint-button.component';
 import { SprintListComponent } from './components/sprints/sprint-list/sprint-list.component';
@@ -19,6 +18,7 @@ import { UserstoryComponent } from './components/userstories/userstory/userstory
 import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
 import { ProjectsService } from './services/project-service/project.service';
 import { CookieService } from 'ngx-cookie-service'
+import { SprintService } from './services/sprintService/sprint-service.service';
 
 
 @NgModule({
@@ -26,7 +26,6 @@ import { CookieService } from 'ngx-cookie-service'
     AppComponent,
     LoginComponent,
     ProjectListComponent,
-    ProjectComponent,
     NewProjectButtonComponent,
     NewSprintButtonComponent,
     SprintListComponent,
@@ -42,7 +41,7 @@ import { CookieService } from 'ngx-cookie-service'
     FormsModule,
     RouterModule
   ],
-  providers: [CookieService, LoginService, ProjectsService],
+  providers: [CookieService, LoginService, ProjectsService, SprintService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
