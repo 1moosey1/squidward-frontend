@@ -1,0 +1,19 @@
+.row-proj {
+    margin-top: 3%;
+    margin-bottom: 5%;
+}
+
+.btn-test {
+    color: #e5e5e9;
+    background-color: #123352;
+}
+
+.btn-test:hover {
+    color: #e5e5e9;
+    background-color: #254e56;
+}
+
+.btn-test:focus {
+    color: #e5e5e9;
+    box-shadow: none;
+}

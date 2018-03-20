@@ -1,0 +1,23 @@
+h1 {
+    color: #123352;
+    margin-top: 25%;
+}
+
+.top-buffer {
+    margin-top: 1%;
+}
+
+.btn-login {
+    color: #e5e5e9;
+    background-color: #123352;
+}
+
+.btn-login:hover {
+    color: #e5e5e9;
+    background-color: #254e56;
+}
+
+.btn-login:focus {
+    color: #e5e5e9;
+    box-shadow: none;
+}
