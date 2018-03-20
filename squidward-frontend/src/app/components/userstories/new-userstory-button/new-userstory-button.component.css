@@ -1,0 +1,20 @@
+.btn-new {
+    background-color: #e5e5e9;
+    margin-top: 25%;
+}
+
+.btn-new:focus {
+    box-shadow: none;
+}
+
+.btn-create {
+    margin-left: 45.4%;
+}
+
+.close {
+    outline: none;
+}
+
+.userstory-input {
+    margin-bottom: 3%;
+}

@@ -1,3 +1,61 @@
-<p>
-  new-userstory-button works!
-</p>
+<!-- .btn-new -->
+<button class="btn btn-sm btn-new" (click)="openModal(content)">
+  <img src="../../../assets/images/plus.svg" width="45" height="45"/>
+</button>
+  
+<!-- modal -->
+<ng-template #content let-c="close">
+  <div class="modal-header">
+    <h4 class="modal-title">New User Story</h4>
+    <!-- .close -->
+    <button type="button" class="close" (click)="c()">
+      <span>&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <!-- userstory-input -->
+    <div class="input-group userstory-input">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Title:<pre>    <!-- aesthetic whitespace --></pre></span>
+      </div>
+      <input type="text" class="form-control" name="title" autocomplete="off"/>
+    </div>
+
+    <!-- userstory-input -->
+    <div class="input-group userstory-input">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">As a:<pre>    <!-- aesthetic whitespace --></pre></span>
+      </div>
+      <input type="text" class="form-control" name="as-a" autocomplete="off"/>
+    </div>
+
+    <!-- userstory-input -->
+    <div class="input-group userstory-input">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">I want:<pre>  <!-- aesthetic whitespace --></pre></span>
+      </div>
+      <input type="text" class="form-control" name="i-want" autocomplete="off"/>
+    </div>
+
+    <!-- userstory-input -->
+    <div class="input-group userstory-input">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">So that:<pre> <!-- aesthetic whitespace --></pre></span>
+      </div>
+      <input type="text" class="form-control" name="so-that" autocomplete="off"/>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <!-- userstory-input -->
+    <div class="input-group userstory-input">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Points:<pre>  <!-- aesthetic whitespace --></pre></span>
+      </div>
+      <input type="number" class="form-control" min="0" max="10"/>
+    </div>
+    <button type="button" class="btn btn-secondary btn-create" (click)="c()">Create</button>
+  </div>
+</ng-template>
+  

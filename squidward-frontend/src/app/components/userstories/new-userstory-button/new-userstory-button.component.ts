@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-new-userstory-button',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-userstory-button.component.css']
 })
 export class NewUserstoryButtonComponent implements OnInit {
+  constructor(private modalService: NgbModal) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  openModal(content): void {
+    this.modalService.open(content).result.then((result) => {});
   }
-
 }
