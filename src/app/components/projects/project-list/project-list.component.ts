@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../../../services/project-service/project.service';
+import { ProjectsService, project } from '../../../services/project-service/project.service';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-list',
@@ -11,20 +12,20 @@ export class ProjectListComponent implements OnInit {
   private projects;
 
   //inject project service
-  constructor(public projectService: ProjectsService) { }
+  constructor(public projectService: ProjectsService, private router: Router) { }
 
   ngOnInit() {
     //get the list of projects from the service and store it into projects variable.
     this.projectService.getOwnedProjects().subscribe(projects => {
       this.projects = projects;
+      console.log(projects)
     })
   }
 
-  setProjectID(id) {
+  setProjectID(id,name, owner, users) {
     //set the projectID so we can use it later!
-    console.log(id);
-    this.projectService.setProjectID(id);
-
+    this.projectService.setProject(id, name, owner, users);
+    this.router.navigate(['/sprints'])
   }
 
   

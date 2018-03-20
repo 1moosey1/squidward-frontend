@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable'
 
 @Injectable()
 export class ProjectsService {
-  private projectID;
+  private project: project;
   //injecting httpclient
   constructor(private http: HttpClient) { }
 
@@ -22,12 +22,22 @@ export class ProjectsService {
                           {headers: new HttpHeaders().set('Content-Type', 'application/json'), withCredentials: true})
   }
 
-  setProjectID(id) {
-    this.projectID = id;
+  setProject(id, name, owner, users) {
+    this.project = {id: id,
+                    name: name,
+                    owner: owner,
+                    users: users};
   }
 
-  getProjectID() {
-    return this.projectID;
+  getProject() {
+    return this.project;
   }
 
+}
+
+export class project {
+  id: number;
+  name: string;
+  owner;
+  users;
 }

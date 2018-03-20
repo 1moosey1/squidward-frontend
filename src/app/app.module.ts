@@ -12,7 +12,6 @@ import { ProjectListComponent } from './components/projects/project-list/project
 import { NewProjectButtonComponent } from './components/projects/new-project-button/new-project-button.component';
 import { NewSprintButtonComponent } from './components/sprints/new-sprint-button/new-sprint-button.component';
 import { SprintListComponent } from './components/sprints/sprint-list/sprint-list.component';
-import { SprintComponent } from './components/sprints/sprint/sprint.component';
 import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
 import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
 import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
@@ -29,7 +28,6 @@ import { SprintService } from './services/sprintService/sprint-service.service';
     NewProjectButtonComponent,
     NewSprintButtonComponent,
     SprintListComponent,
-    SprintComponent,
     UserstoryListComponent,
     UserstoryComponent,
     NewUserstoryButtonComponent

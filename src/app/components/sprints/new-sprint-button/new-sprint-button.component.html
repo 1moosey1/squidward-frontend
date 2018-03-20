@@ -1,3 +1,14 @@
-<p>
-  new-sprint-button works!
-</p>
+<form (submit)="createNewSprint($event)">
+  <div>
+    <label>Sprint Number</label>
+    <input class="form-control" name="project_name" type="text" [(ngModel)]="sprint_num"/>
+    <small id="sprint_num" class="form-text text-muted">Enter The Sprint Number.</small>
+  </div>
+
+  <div>
+    <label>Release</label>
+    <input class="form-control" name="project_name" type="text" [(ngModel)]="release"/>
+    <small id="sprint_num" class="form-text text-muted">Enter True or False.</small>
+  </div>
+  <button type="submit"> Button </button>
+</form>

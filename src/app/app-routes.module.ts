@@ -7,6 +7,7 @@ import { ProjectListComponent } from './components/projects/project-list/project
 import { SprintListComponent } from './components/sprints/sprint-list/sprint-list.component';
 import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
 import { NewProjectButtonComponent } from './components/projects/new-project-button/new-project-button.component';
+import { NewSprintButtonComponent } from './components/sprints/new-sprint-button/new-sprint-button.component';
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: "sprints", component: SprintListComponent},
   //test purpose only -------
   {path:"botton", component: NewProjectButtonComponent},
+  {path:"sprintButton", component: NewSprintButtonComponent},
   //-------------------------
   {path: "userstories", component: UserstoryListComponent},
   {path: "", redirectTo: "login", pathMatch: "full"}
