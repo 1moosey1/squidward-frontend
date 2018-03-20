@@ -24,8 +24,8 @@ import { LoginService } from './services/login.service';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'projects', component: ProjectComponent },
-  { path: 'sprints', component: SprintListComponent },
-  { path: 'userstories', component: UserstoryListComponent },
+  { path: 'sprints', component: SprintComponent },
+  { path: 'userstories', component: UserstoryComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 

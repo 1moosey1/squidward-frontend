@@ -1,0 +1,24 @@
+.row-proj {
+    margin-top: 3%;
+}
+
+.btn-test {
+    color: #e5e5e9;
+    background-color: #123352;
+    width: 100%;
+    text-align: left;
+}
+
+.btn-test:hover {
+    color: #e5e5e9;
+    background-color: #254e56;
+}
+
+.btn-test:focus {
+    color: #e5e5e9;
+    box-shadow: none;
+}
+
+img {
+    margin-bottom: 1%;
+}

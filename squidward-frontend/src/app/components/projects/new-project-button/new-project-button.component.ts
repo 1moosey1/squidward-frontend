@@ -11,7 +11,7 @@ export class NewProjectButtonComponent implements OnInit {
 
   ngOnInit() {}
 
-  openModal(content) {
+  openModal(content): void {
     this.modalService.open(content).result.then((result) => {});
   }
 }

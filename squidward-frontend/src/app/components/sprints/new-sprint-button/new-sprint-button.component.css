@@ -1,0 +1,8 @@
+.btn-new {
+    background-color: #e5e5e9;
+    margin-top: 25%;
+}
+
+.btn-new:focus {
+    box-shadow: none;
+}
