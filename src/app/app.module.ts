@@ -18,6 +18,7 @@ import { UserstoryListComponent } from './components/userstories/userstory-list/
 import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
 import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
 import { ProjectsService } from './services/project-service/project.service';
+import { CookieService } from 'ngx-cookie-service'
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { ProjectsService } from './services/project-service/project.service';
     FormsModule,
     RouterModule
   ],
-  providers: [LoginService, ProjectsService],
+  providers: [CookieService, LoginService, ProjectsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

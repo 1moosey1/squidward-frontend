@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http'
+import { HttpClient, HttpParams, HttpHeaders, HttpRequest } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
 
 @Injectable()
@@ -11,25 +11,22 @@ export class ProjectsService {
   //TODO: It's returning any for now but will specifically return projects class
   //getting all the projects
   getProjects(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/projects');
+    return this.http.get('http://localhost:8080/api/projects/owned',{withCredentials: true});
   }
 
   //creating new project
-  createNewProject(project_name: string,
-                   start_date: string,
-                   end_date: string,
-                   owner: string): Observable<any> {     
+  createNewProject(project_name: string): Observable<any> {     
     //setting the header
-    let header = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded')
+    // let header = new HttpHeaders()
+    //   .set('Content-Type', 'application/json')
+
     //setting the body
-    let body = new HttpParams()
-      .set('project_name', project_name)
-      .set('start_date', start_date)
-      .set('end_date', end_date)
-      .set('owner', owner)
+    //UPDATE: doesn't need the body because it accepts an object from the server here!
+    // let body = new HttpParams()
+    //   .set('project_name', project_name)
+
     //requesting for projects from the server.
-    return this.http.post('http://localhost:8080/api/projects/new',body.toString(), {headers: header})
+    return this.http.post('http://localhost:8080/api/projects/new', {name: project_name}, {headers: new HttpHeaders().set('Content-Type', 'application/json'), withCredentials: true})
   }
 
 }
