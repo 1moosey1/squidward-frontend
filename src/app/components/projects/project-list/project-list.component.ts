@@ -15,13 +15,16 @@ export class ProjectListComponent implements OnInit {
 
   ngOnInit() {
     //get the list of projects from the service and store it into projects variable.
-    this.projectService.getProjects().subscribe(projects => {
+    this.projectService.getOwnedProjects().subscribe(projects => {
       this.projects = projects;
     })
   }
 
-  onClick() {
-    console.log(this.projects);
+  setProjectID(id) {
+    //set the projectID so we can use it later!
+    console.log(id);
+    this.projectService.setProjectID(id);
+
   }
 
   
