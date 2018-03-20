@@ -1,14 +1,19 @@
 :root {
-
   --color-1: #120f0f;
   --color-2: #6b656e;
   --color-3: #f1f1f9;
   --color-4: #e2dacf;
   --color-5: #c5b19d;
+
+  --smoke: #f2f2f2;
+}
+
+html {
+  height: 100%;
 }
 
 body {
-  background-color: var(--color-3);
+  height: 100%;
 }
 
 .row {
@@ -16,11 +21,6 @@ body {
 }
 
 .nopadding {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.col-md-* {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
