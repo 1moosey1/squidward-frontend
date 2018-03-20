@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectsService } from '../../../services/project-service/project.service';
 
 @Component({
   selector: 'app-new-project-button',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-project-button.component.css']
 })
 export class NewProjectButtonComponent implements OnInit {
+  //variables from html (ngModel)
+  private project_name;
 
-  constructor() { }
+  constructor(public projectService: ProjectsService) { }
 
   ngOnInit() {
+  }
+
+  createProject(e) {
+    e.preventDefault();
+    this.projectService.createNewProject(this.project_name).subscribe(res => {
+      console.log(res);
+    })
   }
 
 }
