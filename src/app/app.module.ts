@@ -19,6 +19,7 @@ import { NewUserstoryButtonComponent } from './components/userstories/new-userst
 import { ProjectsService } from './services/project-service/project.service';
 import { SprintService } from './services/sprintService/sprint-service.service';
 import { AlertComponent } from './components/utility/alert/alert.component';
+import { UserstoryService } from './services/userstory-service/userstory.service';
 
 @NgModule({
   declarations: [
