@@ -15,8 +15,10 @@
   </div>
 
   <div class="modal-body">
-    <input type="text" name="project_name" placeholder="Project Name" autocomplete="off" [(ngModel)]="project_name"/>
+    <input type="text" class="form-control" name="project_name" placeholder="Project Name" autocomplete="off" [(ngModel)]="project_name"/>
+  </div>
 
+  <div class="modal-footer">
     <!-- style with .btn-create -->
     <!-- c() closes the modal after creating a new project -->
     <button type="button" class="btn btn-secondary btn-create" (click)="createProject($event); c()">Create</button>

@@ -1,14 +1,34 @@
-<form (submit)="createNewSprint($event)">
-  <div>
-    <label>Sprint Number</label>
-    <input class="form-control" name="project_name" type="text" [(ngModel)]="sprint_num"/>
-    <small id="sprint_num" class="form-text text-muted">Enter The Sprint Number.</small>
+<!-- style with .btn-new -->
+<button class="btn btn-sm btn-new" (click)="openModal(content)">
+  <img src="../../../assets/images/plus.svg" width="45" height="45"/>
+</button>
+
+<!-- modal -->
+<ng-template #content let-c="close">
+  <div class="modal-header">
+    <h4 class="modal-title">New Sprint</h4>
+    
+    <!-- style with .close -->
+    <button type="button" class="close" (click)="c()">
+      <span>&times;</span>
+    </button>
   </div>
 
-  <div>
-    <label>Release</label>
-    <input class="form-control" name="project_name" type="text" [(ngModel)]="release"/>
-    <small id="sprint_num" class="form-text text-muted">Enter True or False.</small>
+  <div class="modal-body">
+    <!-- style with .spr-num-in -->
+    <input type="text" class="form-control spr-num-in" name="project_name" placeholder="Sprint Number" autocomplete="off" [(ngModel)]="sprint_num"/>
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon3">Release:</span>
+      </div>
+      <input type="text" class="form-control" name="project_name" placeholder="True or False" autocomplete="off" [(ngModel)]="release"/>
+    </div>
   </div>
-  <button type="submit"> Button </button>
-</form>
+
+  <div class="modal-footer">
+    <!-- style with .btn-create -->
+    <!-- c() closes the modal after creating a new sprint -->
+    <button type="button" class="btn btn-secondary btn-create" (click)="createNewSprint($event); c()">Create</button>
+  </div>
+</ng-template>

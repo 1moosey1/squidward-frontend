@@ -1,7 +1,33 @@
-<p>
-  sprint-list works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      
+    </div>
 
-<table *ngFor="let list of sprints" (click)="setSprint(list.id, list.number, list.project, list.release)">{{list.number}}</table>
+    <div class="col text-center">
+      <h1>Sprints</h1>
+    </div>
 
-<app-new-sprint-button></app-new-sprint-button>
+    <div class="col text-center">
+      <app-new-sprint-button></app-new-sprint-button>
+    </div>
+  </div>
+
+  <!-- style with .row-proj -->
+  <div class="row row-proj">
+    <div class="col">
+      
+    </div>
+
+    <div class="col">
+      <!-- style with .btn-test -->
+      <button *ngFor="let list of sprints" type="button" class="btn btn-lg btn-test" (click)="setSprint(list.id, list.number, list.project, list.release)">
+        <img src="../../../assets/images/arrow.svg" width="15" height="15"/> {{ list.number }}
+      </button>
+    </div>
+
+    <div class="col">
+      
+    </div>
+  </div>
+</div> 
