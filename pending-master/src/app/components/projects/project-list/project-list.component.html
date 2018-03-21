@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      
+    </div>
+
+    <div class="col text-center">
+      <h1>Projects</h1>
+    </div>
+
+    <div class="col text-center">
+      <app-new-project-button></app-new-project-button>
+    </div>
+  </div>
+
+  <!-- ideally all 3 columns will be populated with projects however i'm not sure how to do that with *ngFor at the moment -->
+  <!-- a possible solution could be a nested *ngFor if such a thing exists -->
+
+  <!-- style with .row-proj -->
+  <div class="row row-proj">
+    <div class="col text-center">
+      
+    </div>
+
+    <div class="col text-center">
+      <!-- style with .btn-test -->
+      <button *ngFor="let list of projects" type="button" class="btn btn-lg btn-test" (click)="setProjectID(list.id, list.name, list.owner, list.users)">
+        <img src="../../../assets/images/chart.svg" width="75" height="75"/><br/>
+        {{ list.name }}
+      </button>
+    </div>
+
+    <div class="col text-center">
+      
+    </div>
+  </div>
+  <!-- keeping the following line for now in case we still need it -->
+  <!-- <table *ngFor="let list of projects" (click)="setProjectID(list.id, list.name, list.owner, list.users)"> {{list.name}} </table> -->
+</div>
