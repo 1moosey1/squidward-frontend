@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppRoutesModule } from './app-routes.module';
 
@@ -17,8 +17,8 @@ import { UserstoryListComponent } from './components/userstories/userstory-list/
 import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
 import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
 import { ProjectsService } from './services/project-service/project.service';
-import { CookieService } from 'ngx-cookie-service';
 import { SprintService } from './services/sprintService/sprint-service.service';
+import { AlertComponent } from './components/utility/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -30,16 +30,17 @@ import { SprintService } from './services/sprintService/sprint-service.service';
     SprintListComponent,
     UserstoryListComponent,
     UserstoryComponent,
-    NewUserstoryButtonComponent
+    NewUserstoryButtonComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutesModule,
     FormsModule,
-    RouterModule,
+    RouterModule
   ],
-  providers: [ApiGlobals, CookieService, AuthService, ProjectsService, SprintService],
+  providers: [ApiGlobals, AuthService, ProjectsService, SprintService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

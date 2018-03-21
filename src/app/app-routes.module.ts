@@ -19,7 +19,7 @@ const routes: Routes = [
   //-------------------------
   {path: "userstories", component: UserstoryListComponent},
   {path: "", redirectTo: "login", pathMatch: "full"}
-]
+];
 
 @NgModule({
   imports: [
