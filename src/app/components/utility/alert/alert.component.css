@@ -1,0 +1,4 @@
+.alert-pg {
+  color: var(--smoke);
+  background-color: var(--alert-glass);
+}
