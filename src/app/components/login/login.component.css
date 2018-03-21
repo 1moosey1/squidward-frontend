@@ -23,7 +23,7 @@
 
 .btn-login {
   color: white;
-  background-color: #6b656eA0;
+  background-color: var(--purple-glass);
 }
 
 .btn-login:hover {
@@ -40,11 +40,12 @@
 }
 
 .form {
-  background-color: #6b656eA0;
+  background-color: var(--purple-glass);
   padding: 25px;
-  border-radius: 4%;
+  border-radius: 2%;
   text-align: right;
   margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 /* DAVID BRYANT */
