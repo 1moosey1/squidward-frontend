@@ -1,3 +1,15 @@
-<p>
-  new-userstory-button works!
-</p>
+<form (submit)="createUserstory($event)">
+  <div>
+    <label>Userstory</label>
+    <input class="form-control" name="userstory" type="text" [(ngModel)]="userstory"/>
+    <small id="userstory" class="form-text text-muted">Enter Userstory.</small>
+  </div>
+
+  <div>
+    <label>difficulty</label>
+    <input class="form-control" name="userstory" type="number" [(ngModel)]="difficulty"/>
+    <small id="userstory" class="form-text text-muted">Enter Userstory.</small>
+  </div>
+  
+  <button type="submit"> Button </button>
+</form>

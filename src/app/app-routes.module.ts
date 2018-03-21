@@ -8,6 +8,7 @@ import { SprintListComponent } from './components/sprints/sprint-list/sprint-lis
 import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
 import { NewProjectButtonComponent } from './components/projects/new-project-button/new-project-button.component';
 import { NewSprintButtonComponent } from './components/sprints/new-sprint-button/new-sprint-button.component';
+import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
 
 const routes: Routes = [
   {path: "login", component: LoginComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   //test purpose only -------
   {path:"botton", component: NewProjectButtonComponent},
   {path:"sprintButton", component: NewSprintButtonComponent},
+  {path:"userButton", component: NewUserstoryButtonComponent},
   //-------------------------
   {path: "userstories", component: UserstoryListComponent},
   {path: "", redirectTo: "login", pathMatch: "full"}
