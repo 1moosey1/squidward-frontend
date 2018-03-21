@@ -21,13 +21,21 @@
     <div class="col-md-4 offset-md-4">
       <form class="form">
         <div class="form-group">
-          <input required type="email" class="form-control" placeholder="Email">
+          <input [(ngModel)]="email" name="email"
+                 type="email" class="form-control" placeholder="Email">
         </div>
         <div class="form-group">
-          <input required type="password" class="form-control" placeholder="Password">
+          <input [(ngModel)]="password" name="password"
+                 type="password" class="form-control" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-login">Login</button>
-        <button type="submit" class="btn btn-login">Register</button>
+        <button (click)="onLogin()"
+                type="submit" class="btn btn-login">
+          Login
+        </button>
+        <button (click)="onRegister()"
+                type="submit" class="btn btn-login">
+          Register
+        </button>
       </form>
     </div>
   </div>

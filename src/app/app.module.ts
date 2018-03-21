@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
-import { RouterModule, Router} from '@angular/router'
-import { FormsModule } from '@angular/forms'
-import { AppRoutesModule } from './/app-routes.module';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AppRoutesModule } from './app-routes.module';
 
+import { ApiGlobals } from './utility/ApiGlobals';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { LoginService } from './services/loginService/login.service';
+import { AuthService } from './services/auth-service/auth.service';
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 import { NewProjectButtonComponent } from './components/projects/new-project-button/new-project-button.component';
 import { NewSprintButtonComponent } from './components/sprints/new-sprint-button/new-sprint-button.component';
@@ -16,9 +17,8 @@ import { UserstoryListComponent } from './components/userstories/userstory-list/
 import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
 import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
 import { ProjectsService } from './services/project-service/project.service';
-import { CookieService } from 'ngx-cookie-service'
+import { CookieService } from 'ngx-cookie-service';
 import { SprintService } from './services/sprintService/sprint-service.service';
-
 
 @NgModule({
   declarations: [
@@ -37,9 +37,9 @@ import { SprintService } from './services/sprintService/sprint-service.service';
     HttpClientModule,
     AppRoutesModule,
     FormsModule,
-    RouterModule
+    RouterModule,
   ],
-  providers: [CookieService, LoginService, ProjectsService, SprintService],
+  providers: [ApiGlobals, CookieService, AuthService, ProjectsService, SprintService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

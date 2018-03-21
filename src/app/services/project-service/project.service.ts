@@ -1,41 +1,49 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders, HttpRequest } from '@angular/common/http'
-import { Observable } from 'rxjs/Observable'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { ApiGlobals } from '../../utility/ApiGlobals';
 
 @Injectable()
 export class ProjectsService {
-  private project: project;
-  //injecting httpclient
-  constructor(private http: HttpClient) { }
 
-  //getting all owned projects
+  private project: Project;
+
+  // injecting httpclient
+  constructor(private api: ApiGlobals, private http: HttpClient) { }
+
+  // getting all owned projects
   getOwnedProjects(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/projects/owned',{withCredentials: true});
+    return this.http.get(this.api.apiRoot + this.api.ownedURI,
+      { withCredentials: true });
   }
 
-  //creating new project
-  createNewProject(project_name: string): Observable<any> {     
+  // creating new project
+  createNewProject(projectName: string): Observable<any> {
 
-    //requesting for projects from the server.
-    return this.http.post('http://localhost:8080/api/projects/new', 
-                          {name: project_name}, 
-                          {headers: new HttpHeaders().set('Content-Type', 'application/json'), withCredentials: true})
+    // requesting projects from the server.
+    return this.http.post(this.api.apiRoot + this.api.newURI,
+      {name: projectName},
+      {
+        headers: new HttpHeaders().set('Content-Type', 'application/json'),
+        withCredentials: true
+      });
   }
 
   setProject(id, name, owner, users) {
-    this.project = {id: id,
-                    name: name,
-                    owner: owner,
-                    users: users};
+    this.project = {
+      id: id,
+      name: name,
+      owner: owner,
+      users: users
+    };
   }
 
   getProject() {
     return this.project;
   }
-
 }
 
-export class project {
+export class Project {
   id: number;
   name: string;
   owner;

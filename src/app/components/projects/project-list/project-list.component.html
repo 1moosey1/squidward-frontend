@@ -4,6 +4,8 @@
 
 <!-- <button (click)="onClick()">CLICK ME DAWG</button> -->
 
-<table *ngFor="let list of projects" (click)="setProjectID(list.id, list.name, list.owner, list.users)"> {{list.name}} </table>
+<table *ngFor="let list of projects" (click)="setProjectID(list.id, list.name, list.owner, list.users)">
+  {{list.name}}
+</table>
 
 <app-new-project-button></app-new-project-button>

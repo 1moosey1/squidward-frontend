@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../services/loginService/login.service';
+import { AuthService } from '../../services/auth-service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +9,30 @@ import { LoginService } from '../../services/loginService/login.service';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService:LoginService) {}
+  email: String;
+  password: String;
+
+  constructor(private authService: AuthService) {}
   ngOnInit() {}
 
-  onClick() {
-    this.loginService.login().subscribe(res => {
-      console.log(res);
-    });
+  onLogin(): void {
+    this.authService.login(this.email, this.password).toPromise()
+      .then(res => {
+        console.log(res);
+        console.log(res.headers);
+      })
+      .catch(res => {
+        console.log(res);
+      });
+  }
+
+  onRegister(): void {
+    this.authService.register(this.email, this.password).toPromise()
+      .then(res => {
+        console.log(res);
+      })
+      .catch(res => {
+        console.log(res);
+      });
   }
 }
