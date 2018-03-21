@@ -16,9 +16,9 @@ export class NewUserstoryButtonComponent implements OnInit {
   constructor(private userstoryService: UserstoryService) { }
 
   ngOnInit() {
-    this.userstoryService.newUserstories(this.sprint, this.userstory, this.difficulty).subscribe(res => {
+    this.userstoryService.newUserstories(this.sprint, this.userstory, this.difficulty).subscribe(res=> {
       console.log(res);
-    }) 
+    })
   }
 
 }

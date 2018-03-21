@@ -19,6 +19,7 @@ import { NewUserstoryButtonComponent } from './components/userstories/new-userst
 import { ProjectsService } from './services/project-service/project.service';
 import { CookieService } from 'ngx-cookie-service';
 import { SprintService } from './services/sprintService/sprint-service.service';
+import { UserstoryService } from './services/userstory-service/userstory.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { SprintService } from './services/sprintService/sprint-service.service';
     FormsModule,
     RouterModule,
   ],
-  providers: [ApiGlobals, CookieService, AuthService, ProjectsService, SprintService],
+  providers: [ApiGlobals, CookieService, AuthService, ProjectsService, SprintService, UserstoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
