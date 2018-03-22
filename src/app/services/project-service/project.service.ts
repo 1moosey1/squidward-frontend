@@ -13,21 +13,18 @@ export class ProjectsService {
 
   // getting all owned projects
   getOwnedProjects(): Observable<any> {
-
     return this.http.get(ApiGlobals.apiRoot + ApiGlobals.ownedURI,
-      { withCredentials: true });
+      {observe: 'response'});
   }
 
   // creating new project
+  // headers: new HttpHeaders().set('Content-Type', 'application/json'),
   createNewProject(projectName: string): Observable<any> {
 
     // requesting projects from the server.
     return this.http.post(ApiGlobals.apiRoot + ApiGlobals.newURI,
       {name: projectName},
-      {
-        headers: new HttpHeaders().set('Content-Type', 'application/json'),
-        withCredentials: true
-      });
+      {observe: 'response'});
   }
 
   setProject(id, name, owner, users) {

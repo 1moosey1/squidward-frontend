@@ -7,19 +7,17 @@ import { ProjectsService } from '../../../services/project-service/project.servi
   styleUrls: ['./new-project-button.component.css']
 })
 export class NewProjectButtonComponent implements OnInit {
-  //variables from html (ngModel)
+  // variables from html (ngModel)
   private project_name;
 
   constructor(public projectService: ProjectsService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createProject(e) {
     e.preventDefault();
     this.projectService.createNewProject(this.project_name).subscribe(res => {
       console.log(res);
-    })
+    });
   }
-
 }

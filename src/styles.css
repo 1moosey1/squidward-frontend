@@ -16,6 +16,7 @@ html {
 
 body {
   height: 100%;
+  background-color: var(--color-3);
 }
 
 .row {
@@ -29,4 +30,18 @@ body {
 
 .seaweed {
   font-family: 'Josefin Sans', sans-serif;
+}
+
+.smokey-text {
+  color: var(--smoke);
+}
+
+.smoke-on-glass {
+  color: var(--smoke);
+  background-color: var(--purple-glass);
+}
+
+.white-on-glass {
+  color: white;
+  background-color: var(--purple-glass);
 }

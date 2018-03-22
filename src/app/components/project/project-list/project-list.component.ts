@@ -16,9 +16,14 @@ export class ProjectListComponent implements OnInit {
   constructor(public projectService: ProjectsService, private router: Router) {}
   ngOnInit() {
     // retrieve and store projects
-    this.projectService.getOwnedProjects().toPromise()
-      .then(projects => {
-        console.log(projects);
+    this.projectService.getOwnedProjects().subscribe(
+      res => {
+        console.log(res);
+      },
+      res => {
+        if (res.status === 403) {
+          window.location.assign(res.error);
+        }
       });
   }
 
