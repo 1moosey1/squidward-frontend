@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../../../services/project-service/project.service';
-import { SprintService } from '../../../services/sprintService/sprint-service.service';
+import { SprintService } from '../../../services/sprint-service/sprint-service.service';
 import { Router } from '@angular/router';
 
 @Component({

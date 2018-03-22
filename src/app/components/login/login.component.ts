@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
   public alertMessage: string;
 
   constructor(private authService: AuthService,
-              private router: Router,
-              private apiGlobals: ApiGlobals) {}
+              private router: Router) {}
 
   ngOnInit() {}
 
@@ -27,10 +26,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.email, this.password).subscribe(
       res => {
 
-        localStorage.setItem(this.apiGlobals.tokenName, res.headers.get(this.apiGlobals.tokenName));
+        localStorage.setItem(ApiGlobals.tokenName, res.headers.get(ApiGlobals.tokenName));
         this.router.navigateByUrl('/projects');
       },
-      res => {
+      () => {
 
         this.displayMessage = true;
         this.alertMessage = 'Invalid Email / Password';
@@ -40,12 +39,12 @@ export class LoginComponent implements OnInit {
   onRegister(): void {
 
     this.authService.register(this.email, this.password).subscribe(
-      res => {
+      () => {
 
         this.displayMessage = true;
         this.alertMessage = 'Registration Successful';
       },
-      res => {
+      () => {
 
         this.displayMessage = true;
         this.alertMessage = 'Invalid Registration';

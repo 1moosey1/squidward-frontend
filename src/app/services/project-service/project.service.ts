@@ -9,19 +9,22 @@ export class ProjectsService {
   private project: Project;
 
   // injecting httpclient
-  constructor(private api: ApiGlobals, private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   // getting all owned projects
   getOwnedProjects(): Observable<any> {
-    return this.http.get(this.api.apiRoot + this.api.ownedURI,
-      { withCredentials: true });
+    const headers = new HttpHeaders();
+    headers.append(ApiGlobals.tokenName, localStorage.getItem(ApiGlobals.tokenName));
+
+    return this.http.get(ApiGlobals.apiRoot + ApiGlobals.ownedURI,
+      { headers: headers, withCredentials: true });
   }
 
   // creating new project
   createNewProject(projectName: string): Observable<any> {
 
     // requesting projects from the server.
-    return this.http.post(this.api.apiRoot + this.api.newURI,
+    return this.http.post(ApiGlobals.apiRoot + ApiGlobals.newURI,
       {name: projectName},
       {
         headers: new HttpHeaders().set('Content-Type', 'application/json'),
