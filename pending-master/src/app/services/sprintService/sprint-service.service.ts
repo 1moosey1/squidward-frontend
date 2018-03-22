@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
-import { ProjectsService, project } from '../project-service/project.service';
+import { ProjectsService, Project } from '../project-service/project.service';
 
 @Injectable()
 export class SprintService {
@@ -11,7 +11,7 @@ export class SprintService {
 
   addNewSprint(sprint_number, project, release): Observable<any> {
     return this.http.post('http://localhost:8080/api/sprint/new',
-                          {'number':sprint_number, 'project': project, 'release': release }, 
+                          {'number':sprint_number, 'project': project, 'release': release },
                           {withCredentials: true})
   }
 

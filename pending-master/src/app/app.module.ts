@@ -8,9 +8,10 @@ import { AppRoutesModule } from './/app-routes.module';
 // Bootstrap in TypeScript
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { ApiGlobals } from './utility/ApiGlobals';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { LoginService } from './services/loginService/login.service';
+import { AuthService } from './services/auth-service/auth.service';
 import { ProjectListComponent } from './components/projects/project-list/project-list.component';
 import { NewProjectButtonComponent } from './components/projects/new-project-button/new-project-button.component';
 import { NewSprintButtonComponent } from './components/sprints/new-sprint-button/new-sprint-button.component';
@@ -44,7 +45,7 @@ import { SprintService } from './services/sprintService/sprint-service.service';
     // Bootstrap in TypeScript
     NgbModule.forRoot()
   ],
-  providers: [CookieService, LoginService, ProjectsService, SprintService],
+  providers: [ApiGlobals, CookieService, AuthService, ProjectsService, SprintService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
