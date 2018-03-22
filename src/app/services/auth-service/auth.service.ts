@@ -20,19 +20,13 @@ export class AuthService {
     return this.http.post(ApiGlobals.apiRoot + ApiGlobals.loginURI, {
       email: email,
       password: password
-    }, {
-      observe: 'response',
-      withCredentials: true
-    });
+    }, {observe: 'response'});
   }
 
   register(email: String, password: String): Observable<any> {
     return this.http.post(ApiGlobals.apiRoot + ApiGlobals.registerURI, {
       email: email,
       password: password
-    }, {
-      observe: 'response',
-      withCredentials: true
-    });
+    }, {observe: 'response'});
   }
 }
