@@ -17,15 +17,6 @@
   height: 50px;
 }
 
-.smokey-text {
-  color: var(--smoke);
-}
-
-.btn-login {
-  color: white;
-  background-color: var(--purple-glass);
-}
-
 .btn-login:hover {
   background-color: #e2dacfA0;
 }
