@@ -13,11 +13,9 @@ export class ProjectsService {
 
   // getting all owned projects
   getOwnedProjects(): Observable<any> {
-    const headers = new HttpHeaders();
-    headers.append(ApiGlobals.tokenName, localStorage.getItem(ApiGlobals.tokenName));
 
     return this.http.get(ApiGlobals.apiRoot + ApiGlobals.ownedURI,
-      { headers: headers, withCredentials: true });
+      { withCredentials: true });
   }
 
   // creating new project

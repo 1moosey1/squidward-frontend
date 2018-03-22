@@ -53,10 +53,10 @@ function tokenGetter(): string {
       config: {
         tokenGetter: tokenGetter,
         headerName: ApiGlobals.tokenName,
-        whitelistedDomains: [ApiGlobals.apiRoot],
+        whitelistedDomains: [ApiGlobals.apiDomain],
         blacklistedRoutes: [
-          ApiGlobals.apiRoot + ApiGlobals.loginURI,
-          ApiGlobals.apiRoot + ApiGlobals.registerURI
+          ApiGlobals.apiDomain + ApiGlobals.loginURI,
+          ApiGlobals.apiDomain + ApiGlobals.registerURI
         ],
         skipWhenExpired: true
       }
