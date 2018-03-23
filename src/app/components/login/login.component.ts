@@ -23,31 +23,28 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
 
-    this.authService.login(this.email, this.password).subscribe(
-      res => {
+    if (this.authService.login(this.email, this.password)) {
 
-        localStorage.setItem(ApiGlobals.tokenName, res.headers.get(ApiGlobals.tokenName));
-        this.router.navigateByUrl('/projects');
-      },
-      () => {
+      this.router.navigateByUrl(ApiGlobals.projectsRoute);
 
-        this.displayMessage = true;
-        this.alertMessage = 'Invalid Email / Password';
-      });
+    } else {
+
+      this.displayMessage = true;
+      this.alertMessage = 'Invalid Email / Password';
+    }
   }
 
   onRegister(): void {
 
-    this.authService.register(this.email, this.password).subscribe(
-      () => {
+    if (this.authService.register(this.email, this.password)) {
 
-        this.displayMessage = true;
-        this.alertMessage = 'Registration Successful';
-      },
-      () => {
+      this.displayMessage = true;
+      this.alertMessage = 'Registration Successful';
 
-        this.displayMessage = true;
-        this.alertMessage = 'Invalid Registration';
-      });
+    } else {
+
+      this.displayMessage = true;
+      this.alertMessage = 'Invalid Registration';
+    }
   }
 }
