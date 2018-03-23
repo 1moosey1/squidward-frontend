@@ -25,10 +25,16 @@ export class ProjectPageComponent implements OnInit {
       .subscribe(
         (projects: Project[]) => {
           this.ownedProjects = projects;
+        },
+        () => {
+
+          this.displayMessage = true;
+          this.alertMessage = 'Error: Could not load projects';
         });
   }
 
   onNewProject(projectname: string): void {
+
     this.projectService.createNewProject(projectname)
       .subscribe(
         () => {
@@ -40,7 +46,7 @@ export class ProjectPageComponent implements OnInit {
         () => {
 
           this.displayMessage = true;
-          this.alertMessage = 'Error creating Project Hook';
+          this.alertMessage = 'Error: Could not create project hook';
         });
   }
 }

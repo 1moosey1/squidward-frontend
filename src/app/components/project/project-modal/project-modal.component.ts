@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-project-modal',
@@ -9,13 +9,14 @@ export class ProjectModalComponent implements OnInit {
 
   public projectname: string;
 
-  @Input()
-  private onNewProject;
+  @Output()
+  public submitEvent = new EventEmitter<string>();
 
   constructor() {}
   ngOnInit() {}
 
-  onCreate(): void {
-    this.onNewProject(this.projectname);
+  onSubmit(): void {
+    this.submitEvent.emit(this.projectname);
+    this.projectname = '';
   }
 }

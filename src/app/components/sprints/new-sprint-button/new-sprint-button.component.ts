@@ -10,7 +10,7 @@ import { ProjectService } from '../../../services/project-service/project.servic
 export class NewSprintButtonComponent implements OnInit {
   private sprintInfo;
 
-  //variables for sprint document
+  // variables for sprint document
   private sprint_num;
   private project;
   private release;
@@ -18,11 +18,12 @@ export class NewSprintButtonComponent implements OnInit {
   constructor(private sprintService: SprintService, private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.project = this.projectService.getProject();
+    // this.project = this.projectService.getProject();
   }
 
-  createNewSprint(){
-    this.sprintService.addNewSprint(this.sprint_num, this.project, this.release).subscribe(res => {
+  createNewSprint() {
+    this.sprintService.addNewSprint(this.sprint_num, this.project, this.release)
+      .subscribe(res => {
       console.log(res);
     });
   }

@@ -41,6 +41,8 @@ export class ProjectService {
 
                 window.location.assign(err.error);
               }
+
+              observable.error();
             });
 
       } else {

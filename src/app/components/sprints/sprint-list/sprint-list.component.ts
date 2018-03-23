@@ -12,19 +12,19 @@ export class SprintListComponent implements OnInit {
   private project;
   private sprints;
 
-  constructor(private projectService: ProjectService, private sprintService: SprintService, private router:Router) { }
+  constructor(private projectService: ProjectService,
+              private sprintService: SprintService, private router: Router) { }
 
   ngOnInit() {
-    this.project = this.projectService.getProject();
+    // this.project = this.projectService.getProject();
 
-    this.sprintService.getSprints(this.project.id).subscribe(res=> {
+    this.sprintService.getSprints(this.project.id).subscribe(res => {
       this.sprints = res;
     });
   }
 
   setSprint(id, number, project, release) {
     this.sprintService.setSprint(id, number, project, release);
-    this.router.navigate(['/userstories'])
+    this.router.navigate(['/userstories']);
   }
-
 }
