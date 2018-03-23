@@ -1,5 +1,20 @@
-<p>
-  sprint-page works!
-</p>
+<div>
+  <app-navbar></app-navbar>
 
-<app-sprint-list></app-sprint-list>
+  <div class="row">
+    <div class="col-md-12">
+
+      <h3 class="dark-text seaweed">Sprint Dashboard</h3>
+      <hr/>
+      <app-alert *ngIf="displayMessage" [alertMessage]="alertMessage"></app-alert>
+
+    </div>
+  </div>
+
+  <app-sprint-list [sprints]="sprints"></app-sprint-list>
+  <app-sprint-modal (submitEvent)="onNewSprints($event)"></app-sprint-modal>
+
+  <button class="btn btn-new" data-toggle="modal" data-target="#projectModal">
+    <i class="fa fa-plus-circle fa-4x"></i>
+  </button>
+</div>

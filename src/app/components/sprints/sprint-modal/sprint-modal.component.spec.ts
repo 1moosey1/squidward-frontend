@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewSprintButtonComponent } from './new-sprint-button.component';
+import { SprintModalComponent } from './sprint-modal.component';
 
-describe('NewSprintButtonComponent', () => {
-  let component: NewSprintButtonComponent;
-  let fixture: ComponentFixture<NewSprintButtonComponent>;
+describe('SprintModalComponent', () => {
+  let component: SprintModalComponent;
+  let fixture: ComponentFixture<SprintModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewSprintButtonComponent ]
+      declarations: [ SprintModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewSprintButtonComponent);
+    fixture = TestBed.createComponent(SprintModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

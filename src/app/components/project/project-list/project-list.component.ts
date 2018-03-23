@@ -17,7 +17,6 @@ export class ProjectListComponent implements OnInit {
   ngOnInit() {}
 
   openProject(projectid) {
-    // localStorage.setItem(this.projectKey, JSON.stringify(project));
-    this.router.navigate(['/sprints', projectid]/*{queryParams: {projectid: projectid}}*/);
+    this.router.navigate(['/sprints', projectid]);
   }
 }

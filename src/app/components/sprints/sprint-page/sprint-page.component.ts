@@ -1,8 +1,9 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable, Inject } from '@angular/core';
 import { SprintService } from '../../../services/sprint-service/sprint-service.service';
 import { Router, Route, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { ProjectService } from '../../../services/project-service/project.service';
+import Sprint from '../../../utility/Sprint';
 
 @Component({
   selector: 'app-sprint-page',
@@ -12,28 +13,46 @@ import { ProjectService } from '../../../services/project-service/project.servic
 export class SprintPageComponent implements OnInit {
 
   private projectid;
-  private sprints;
+  public displayMessage = false;
+  public alertMessage: string;
+  public sprints;
   
   constructor(private sprintService: SprintService, private router: Router, private route: ActivatedRoute,
      private projectService: ProjectService ) { }
 
   ngOnInit() {
     this.projectid = this.route.snapshot.paramMap.get('projectid');
-
-    this.sprintService.getSprints(this.projectid, false).subscribe(
-      res => {
-        this.sprints = res;
-        console.log(this.sprints);
-      }
-    );
-    // this.loadSprints(false);
+    this.loadSprints(true);
   }
 
-  // loadSprints(refresh: boolean) {
-  //   this.sprintService.getSprints(this.project.id).subscribe(res => {
-  //     this.sprints = localStorage.getItem(this.sprints);
-  //     this.sprints = JSON.parse(this.sprints);
-  //   });
-  // }
+  loadSprints(refresh: boolean): void {
+    this.sprintService.getSprints(this.projectid, refresh).subscribe(
+      (res: Sprint[]) => {
+        this.sprints = res;
+      },
+      () => {
+        this.displayMessage = true;
+        this.alertMessage = 'Error: Could not load sprints';
+      }
+    );
+  }
+
+  onNewSprints(sprint_num, release ): void {
+    this.sprintService.addNewSprint(sprint_num, this.projectid, release)
+      .subscribe(
+        () => {
+          this.displayMessage = true;
+          this.alertMessage = 'sprint added successfully';
+          this.loadSprints(true);
+        },
+        () => {
+          this.displayMessage = true;
+          this.alertMessage = 'sprint was unsucessfully created';
+        }
+      
+      );
+  }
+
+
 
 }

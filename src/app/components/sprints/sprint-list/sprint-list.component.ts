@@ -9,9 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./sprint-list.component.css']
 })
 export class SprintListComponent implements OnInit {
+  @Input()
   private sprints;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sprintService: SprintService) { }
 
   ngOnInit() {
   }

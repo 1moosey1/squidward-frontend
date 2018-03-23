@@ -7,25 +7,26 @@ import { AuthService } from '../auth-service/auth.service';
 
 @Injectable()
 export class SprintService {
-  private sprint = 'sprintInfo';
+  private sprints = 'sprintInfo';
 
   constructor(private http: HttpClient,  private authService: AuthService) { }
 
   addNewSprint(sprint_number, project, release): Observable<any> {
     return this.http.post('http://localhost:8080/api/sprint/new',
-                          {'number': sprint_number, 'project': project, 'release': release },
+                          {'number': sprint_number, 'project': {id: project}, 'release': release },
                           {withCredentials: true});
   }
 
+  
   getSprints(projectid: number, refresh: boolean): Observable<any> {
     return new Observable<any>(observable => {
-      const sprints = localStorage.getItem(this.sprint);
+      const sprints = localStorage.getItem(this.sprints);
 
       if (refresh || !sprints) {
         this.http.get(`http://localhost:8080/api/sprint/${projectid}`)
         .subscribe(
           sprintz => {
-            localStorage.setItem(this.sprint, JSON.stringify(sprintz));
+            localStorage.setItem(this.sprints, JSON.stringify(sprintz));
             observable.next(sprintz);
           },
           (err: HttpErrorResponse) => {
@@ -42,8 +43,5 @@ export class SprintService {
       }
 
     });
-
-    // return this.http.get(`http://localhost:8080/api/sprint/${projectid}`);
   }
-
 }
