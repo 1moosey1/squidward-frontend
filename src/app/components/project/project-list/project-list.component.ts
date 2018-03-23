@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { SprintService } from '../../../services/sprint-service/sprint-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-list',
@@ -9,7 +11,13 @@ export class ProjectListComponent implements OnInit {
 
   @Input()
   public projects;
+  private projectKey = 'projectInfo';
+  constructor(private sprintService: SprintService, private router: Router) {}
 
-  constructor() {}
   ngOnInit() {}
+
+  openProject(projectid) {
+    // localStorage.setItem(this.projectKey, JSON.stringify(project));
+    this.router.navigate(['/sprints', projectid]/*{queryParams: {projectid: projectid}}*/);
+  }
 }

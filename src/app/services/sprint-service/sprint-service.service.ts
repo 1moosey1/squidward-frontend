@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ProjectService } from '../project-service/project.service';
+import Sprint from '../../utility/Sprint';
+import { AuthService } from '../auth-service/auth.service';
 
 @Injectable()
 export class SprintService {
-  private sprint: sprint;
+  private sprint = 'sprintInfo';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,  private authService: AuthService) { }
 
   addNewSprint(sprint_number, project, release): Observable<any> {
     return this.http.post('http://localhost:8080/api/sprint/new',
@@ -15,29 +17,33 @@ export class SprintService {
                           {withCredentials: true});
   }
 
-  getSprints(projectid): Observable<any> {
-    return this.http.get(`http://localhost:8080/api/sprint/${projectid}`,
-      {withCredentials: true});
+  getSprints(projectid: number, refresh: boolean): Observable<any> {
+    return new Observable<any>(observable => {
+      const sprints = localStorage.getItem(this.sprint);
+
+      if (refresh || !sprints) {
+        this.http.get(`http://localhost:8080/api/sprint/${projectid}`)
+        .subscribe(
+          sprintz => {
+            localStorage.setItem(this.sprint, JSON.stringify(sprintz));
+            observable.next(sprintz);
+          },
+          (err: HttpErrorResponse) => {
+
+            if (err.status === 401) {
+              this.authService.logout();
+            } else if (err.status === 403) {
+              window.location.assign(err.error);
+            }
+            observable.error();
+          });
+      } else {
+        observable.next(JSON.parse(sprints));
+      }
+
+    });
+
+    // return this.http.get(`http://localhost:8080/api/sprint/${projectid}`);
   }
 
-  setSprint(id, number, project, release) {
-    this.sprint = {
-      id: id,
-      number: number,
-      project: project,
-      release: release
-    }
-  }
-
-  getSprint() {
-    return this.sprint;
-  }
-
-}
-
-export class sprint {
-  id;
-  number;
-  project;
-  release;
 }

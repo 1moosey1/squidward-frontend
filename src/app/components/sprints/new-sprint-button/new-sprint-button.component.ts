@@ -18,7 +18,8 @@ export class NewSprintButtonComponent implements OnInit {
   constructor(private sprintService: SprintService, private projectService: ProjectService) { }
 
   ngOnInit() {
-    // this.project = this.projectService.getProject();
+    this.project = localStorage.getItem(this.project);
+    this.project = JSON.parse(this.project);
   }
 
   createNewSprint() {

@@ -27,6 +27,7 @@ import { AuthGuardService } from './services/auth-guard-service/auth-guard.servi
 import { ProjectService } from './services/project-service/project.service';
 import { SprintService } from './services/sprint-service/sprint-service.service';
 import { UserstoryService } from './services/userstory-service/userstory.service';
+import { SprintPageComponent } from './components/sprints/sprint-page/sprint-page.component';
 
 function tokenGetter(): string {
   return localStorage.getItem(ApiGlobals.tokenName);
@@ -46,6 +47,7 @@ function tokenGetter(): string {
     NavbarComponent,
     ProjectPageComponent,
     ProjectModalComponent,
+    SprintPageComponent,
   ],
   imports: [
     BrowserModule,

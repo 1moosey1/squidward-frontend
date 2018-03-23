@@ -1,6 +1,6 @@
 <div class="row text-center seaweed">
   <div *ngFor="let project of projects" class="col-md-3 project">
-    <div class="project-inline">
+    <div class="project-inline" (click)="openProject(project.id)">
       <i class="fa fa-bar-chart-o"></i>
       {{ project.name }}
     </div>

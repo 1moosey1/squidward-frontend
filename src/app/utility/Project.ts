@@ -1,5 +1,5 @@
 export default class Project {
-  id: number
+  id: number;
   name: string;
-  startDate: string;
+  startDate: string;  
 }

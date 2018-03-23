@@ -2,6 +2,6 @@
   sprint-list works!
 </p>
 
-<table *ngFor="let list of sprints" (click)="setSprint(list.id, list.number, list.project, list.release)">{{list.number}}</table>
+<table *ngFor="let list of sprints">{{list.number}}</table>
 
 <app-new-sprint-button></app-new-sprint-button>
