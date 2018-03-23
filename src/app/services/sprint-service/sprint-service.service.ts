@@ -5,7 +5,7 @@ import { ProjectService } from '../project-service/project.service';
 
 @Injectable()
 export class SprintService {
-  private sprint: Sprint;
+  private sprint: sprint;
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +16,8 @@ export class SprintService {
   }
 
   getSprints(projectid): Observable<any> {
-    return this.http.get(`http://localhost:8080/api/sprint/${projectid}`, {withCredentials: true});
+    return this.http.get(`http://localhost:8080/api/sprint/${projectid}`,
+      {withCredentials: true});
   }
 
   setSprint(id, number, project, release) {
@@ -25,7 +26,7 @@ export class SprintService {
       number: number,
       project: project,
       release: release
-    };
+    }
   }
 
   getSprint() {
@@ -34,7 +35,7 @@ export class SprintService {
 
 }
 
-export class Sprint {
+export class sprint {
   id;
   number;
   project;
