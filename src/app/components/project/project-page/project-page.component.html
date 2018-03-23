@@ -1,5 +1,20 @@
 <div>
   <app-navbar></app-navbar>
-  <app-project-list></app-project-list>
-  <app-new-project-button></app-new-project-button>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <h3 class="dark-text seaweed">Project Dashboard</h3>
+      <hr/>
+      <app-alert *ngIf="displayMessage" [alertMessage]="alertMessage"></app-alert>
+
+    </div>
+  </div>
+
+  <app-project-list [projects]="ownedProjects"></app-project-list>
+  <app-project-modal [onNewProject]="onNewProject"></app-project-modal>
+
+  <button class="btn btn-new" data-toggle="modal" data-target="#projectModal">
+    <i class="fa fa-plus-circle fa-4x"></i>
+  </button>
 </div>

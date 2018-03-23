@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../../../services/project-service/project.service';
+import { ProjectService } from '../../../services/project-service/project.service';
 import { SprintService } from '../../../services/sprint-service/sprint-service.service';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ export class SprintListComponent implements OnInit {
   private project;
   private sprints;
 
-  constructor(private projectService: ProjectsService, private sprintService: SprintService, private router:Router) { }
+  constructor(private projectService: ProjectService, private sprintService: SprintService, private router:Router) { }
 
   ngOnInit() {
     this.project = this.projectService.getProject();

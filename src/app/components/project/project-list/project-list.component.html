@@ -1,9 +1,35 @@
-<p>
-  project-list works!
-</p>
+<div class="row text-center">
+  <div *ngFor="let project of projects" class="col-md-3">
+    <i class="fa fa-bar-chart-o"></i>
+    {{ project.name }}
+  </div>
+  <div class="col-md-3">
+    <i class="fa fa-bar-chart-o"></i>
+    dummy data
+  </div>
+  <div class="col-md-3">
+    <i class="fa fa-bar-chart-o"></i>
+    dummy data
+  </div>
+  <div class="col-md-3">
+    <i class="fa fa-bar-chart-o"></i>
+    dummy data
+  </div>
+  <div class="col-md-3">
+    <i class="fa fa-bar-chart-o"></i>
+    dummy data
+  </div>
+  <div class="col-md-3">
+    <i class="fa fa-bar-chart-o"></i>
+    dummy data
+  </div>
+  <div class="col-md-3">
+    <i class="fa fa-bar-chart-o"></i>
+    dummy data
+  </div>
+  <div class="col-md-3">
+    <i class="fa fa-bar-chart-o"></i>
+    dummy data
+  </div>
+</div>
 
-<table *ngFor="let list of projects" (click)="setProjectID(list.id, list.name, list.owner, list.users)">
-  {{list.name}}
-</table>
-
-<app-new-project-button>{{ this.email }}</app-new-project-button>

@@ -1,0 +1,17 @@
+.btn-submit {
+  color: var(--color-2);
+  background-color: transparent;
+}
+
+.btn-submit:hover {
+  color: var(--purple-glass);
+}
+
+/*.btn-submit {*/
+  /*color: var(--smoke);*/
+  /*background-color: var(--color-2);*/
+/*}*/
+
+/*.btn-submit:hover {*/
+  /*background-color: var(--purple-glass);*/
+/*}*/

@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ApiGlobals } from '../../utility/ApiGlobals';
+import {Router} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
 
   constructor(private api: ApiGlobals,
               private http: HttpClient,
+              private router: Router,
               public jwtHelper: JwtHelperService) {}
 
   public isAuthenticated(): boolean {
@@ -15,36 +18,37 @@ export class AuthService {
     return token && !this.jwtHelper.isTokenExpired(token);
   }
 
-  login(email: String, password: String): boolean {
+  login(email: String, password: String): Observable<any> {
 
-    let loginSuccessful = false;
-    this.http.post(ApiGlobals.apiRoot + ApiGlobals.loginURI, {
-      email: email,
-      password: password
-    }, {observe: 'response'})
-      .subscribe(
-        res => {
+    return new Observable<any>(observable => {
 
-          localStorage.setItem(ApiGlobals.tokenName, res.headers.get(ApiGlobals.tokenName));
-          loginSuccessful = true;
-        });
-
-    return loginSuccessful;
+      this.http.post(ApiGlobals.apiRoot + ApiGlobals.loginURI, {
+        email: email,
+        password: password
+      }, {observe: 'response'})
+        .subscribe(
+          (res: HttpResponse<string>) => {
+            localStorage.setItem(ApiGlobals.tokenName, res.headers.get(ApiGlobals.tokenName));
+            observable.next();
+          }, () => { observable.error(); });
+    });
   }
 
-  register(email: String, password: String): boolean {
+  register(email: String, password: String): Observable<any> {
 
-    let registerSuccessful = false;
-    this.http.post(ApiGlobals.apiRoot + ApiGlobals.registerURI, {
-      email: email,
-      password: password
-    }, {observe: 'response'})
-      .subscribe(() => { registerSuccessful = true; });
+    return new Observable<any>(observable => {
 
-    return registerSuccessful;
+      this.http.post(ApiGlobals.apiRoot + ApiGlobals.registerURI, {
+        email: email,
+        password: password
+      }).subscribe(
+          () => { observable.next(); },
+          () => { observable.error(); });
+    });
   }
 
   logout() {
     localStorage.removeItem(ApiGlobals.tokenName);
+    this.router.navigateByUrl(ApiGlobals.loginRoute);
   }
 }

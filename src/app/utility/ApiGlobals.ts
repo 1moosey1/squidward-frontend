@@ -10,6 +10,7 @@ export class ApiGlobals {
   public static loginURI = '/api/user/login';
   public static registerURI = '/api/user/register';
   public static ownedURI = '/api/projects/owned';
+  public static developerURI = '/api/projects/developer';
   public static newURI = '/api/projects/new';
 
   // Internals

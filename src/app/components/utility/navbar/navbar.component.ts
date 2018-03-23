@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiGlobals} from '../../../utility/ApiGlobals';
-import {Router} from '@angular/router';
 import {AuthService} from '../../../services/auth-service/auth.service';
 
 @Component({
@@ -10,11 +8,10 @@ import {AuthService} from '../../../services/auth-service/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private authService: AuthService) {}
   ngOnInit() {}
 
   logout() {
     this.authService.logout();
-    this.router.navigateByUrl(ApiGlobals.loginRoute);
   }
 }

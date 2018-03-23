@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs/Observable'
-import { ProjectsService, Project } from '../project-service/project.service';
+import { ProjectService, Project } from '../project-service/project.service';
 
 @Injectable()
 export class SprintService {

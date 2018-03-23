@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ProjectsService, Project } from '../../../services/project-service/project.service';
-import { RouterLink, Router } from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-project-list',
@@ -9,27 +7,9 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class ProjectListComponent implements OnInit {
 
-  // List of projects
-  private projects;
+  @Input()
+  public projects;
 
-  // inject project service
-  constructor(public projectService: ProjectsService, private router: Router) {}
-  ngOnInit() {
-    // retrieve and store projects
-    this.projectService.getOwnedProjects().subscribe(
-      res => {
-        console.log(res);
-      },
-      res => {
-        if (res.status === 403) {
-          window.location.assign(res.error);
-        }
-      });
-  }
-
-  setProjectID(id, name, owner, users) {
-    // set the projectID so we can use it later
-    this.projectService.setProject(id, name, owner, users);
-    this.router.navigate(['/sprints']);
-  }
+  constructor() {}
+  ngOnInit() {}
 }
