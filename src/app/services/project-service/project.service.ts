@@ -1,49 +1,83 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ApiGlobals } from '../../utility/ApiGlobals';
+import Project from '../../utility/Project';
+import {AuthService} from '../auth-service/auth.service';
 
 @Injectable()
-export class ProjectsService {
+export class ProjectService {
 
-  private project: Project;
+  private ownedKey = 'ownedProjects';
+  private developerKey = 'developerProjects';
 
-  // injecting httpclient
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private authService: AuthService) {}
 
-  // getting all owned projects
-  getOwnedProjects(): Observable<any> {
-    return this.http.get(ApiGlobals.apiRoot + ApiGlobals.ownedURI,
-      {observe: 'response'});
+  // Get owned projects
+  getOwnedProjects(refresh: boolean): Observable<Project[]> {
+
+    return new Observable<Project[]>(observable => {
+
+      const ownedProjects = localStorage.getItem(this.ownedKey);
+
+      if (refresh || !ownedProjects) {
+
+        this.http.get(ApiGlobals.apiRoot + ApiGlobals.ownedURI)
+          .subscribe(
+            (projects: Project[]) => {
+
+            console.log(projects);
+            localStorage.setItem(this.ownedKey, JSON.stringify(projects));
+            observable.next(projects);
+          },
+            (err: HttpErrorResponse) => {
+
+              if (err.status === 401) {
+
+                this.authService.logout();
+
+              } else if (err.status === 403) {
+
+                window.location.assign(err.error);
+              }
+
+              observable.error();
+            });
+
+      } else {
+
+        observable.next(JSON.parse(ownedProjects));
+      }
+    });
   }
 
-  // creating new project
-  // headers: new HttpHeaders().set('Content-Type', 'application/json'),
+  // Get developer projects
+  getDeveloperProjects(refresh: boolean) {}
+
+  // Create new project
   createNewProject(projectName: string): Observable<any> {
 
-    // requesting projects from the server.
-    return this.http.post(ApiGlobals.apiRoot + ApiGlobals.newURI,
-      {name: projectName},
-      {observe: 'response'});
-  }
+    return new Observable<any>(observable => {
 
-  setProject(id, name, owner, users) {
-    this.project = {
-      id: id,
-      name: name,
-      owner: owner,
-      users: users
-    };
-  }
+      this.http.post(ApiGlobals.apiRoot + ApiGlobals.newURI,
+        {name: projectName})
+        .subscribe(
+          () => { observable.next(); },
+          (err: HttpErrorResponse) => {
 
-  getProject() {
-    return this.project;
+            if (err.status === 401) {
+
+              this.authService.logout();
+
+            } else if (err.status === 403) {
+
+              window.location.assign(err.error);
+            }
+
+            observable.error();
+          });
+    });
   }
 }
 
-export class Project {
-  id: number;
-  name: string;
-  owner;
-  users;
-}

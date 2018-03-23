@@ -11,22 +11,22 @@ import { ApiGlobals } from './utility/ApiGlobals';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProjectListComponent } from './components/project/project-list/project-list.component';
-import { NewProjectButtonComponent } from './components/project/new-project-button/new-project-button.component';
 import { NewSprintButtonComponent } from './components/sprints/new-sprint-button/new-sprint-button.component';
 import { SprintListComponent } from './components/sprints/sprint-list/sprint-list.component';
 import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
 import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
 import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
 import { AlertComponent } from './components/utility/alert/alert.component';
+import { NavbarComponent } from './components/utility/navbar/navbar.component';
+import { ProjectPageComponent } from './components/project/project-page/project-page.component';
+import { ProjectModalComponent } from './components/project/project-modal/project-modal.component';
 
 // Services
 import { AuthService } from './services/auth-service/auth.service';
 import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
-import { ProjectsService } from './services/project-service/project.service';
+import { ProjectService } from './services/project-service/project.service';
 import { SprintService } from './services/sprint-service/sprint-service.service';
 import { UserstoryService } from './services/userstory-service/userstory.service';
-import { NavbarComponent } from './components/utility/navbar/navbar.component';
-import { ProjectPageComponent } from './components/project/project-page/project-page.component';
 
 function tokenGetter(): string {
   return localStorage.getItem(ApiGlobals.tokenName);
@@ -37,7 +37,6 @@ function tokenGetter(): string {
     AppComponent,
     LoginComponent,
     ProjectListComponent,
-    NewProjectButtonComponent,
     NewSprintButtonComponent,
     SprintListComponent,
     UserstoryListComponent,
@@ -46,6 +45,7 @@ function tokenGetter(): string {
     AlertComponent,
     NavbarComponent,
     ProjectPageComponent,
+    ProjectModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +70,7 @@ function tokenGetter(): string {
     ApiGlobals,
     AuthService,
     AuthGuardService,
-    ProjectsService,
+    ProjectService,
     SprintService,
     UserstoryService
   ],

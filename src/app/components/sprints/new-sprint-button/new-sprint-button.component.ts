@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SprintService } from '../../../services/sprint-service/sprint-service.service';
-import { ProjectsService } from '../../../services/project-service/project.service';
+import { ProjectService } from '../../../services/project-service/project.service';
 
 @Component({
   selector: 'app-new-sprint-button',
@@ -10,19 +10,20 @@ import { ProjectsService } from '../../../services/project-service/project.servi
 export class NewSprintButtonComponent implements OnInit {
   private sprintInfo;
 
-  //variables for sprint document
+  // variables for sprint document
   private sprint_num;
   private project;
   private release;
 
-  constructor(private sprintService: SprintService, private projectService: ProjectsService) { }
+  constructor(private sprintService: SprintService, private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.project = this.projectService.getProject();
+    // this.project = this.projectService.getProject();
   }
 
-  createNewSprint(){
-    this.sprintService.addNewSprint(this.sprint_num, this.project, this.release).subscribe(res => {
+  createNewSprint() {
+    this.sprintService.addNewSprint(this.sprint_num, this.project, this.release)
+      .subscribe(res => {
       console.log(res);
     });
   }

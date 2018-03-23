@@ -1,0 +1,21 @@
+.btn-new {
+  color: var(--color-2);
+  background-color: transparent;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  outline: none !important;
+}
+
+.btn-new:hover {
+  color: var(--purple-glass);
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}

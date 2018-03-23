@@ -1,4 +1,15 @@
-.nav-glass {
-  color: var(--purple-glass);
-  background-color: var(--purple-glass);
+.navbar {
+  margin-bottom: 20px;
+}
+
+.logout-button {
+  border: none;
+  padding: 5px;
+  cursor:pointer;
+  background-color: transparent;
+  color: white;
+}
+
+.logout-button:hover {
+  color: var(--smoke);
 }

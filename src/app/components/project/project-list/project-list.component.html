@@ -1,9 +1,15 @@
-<p>
-  project-list works!
-</p>
+<div class="row text-center seaweed">
+  <div *ngFor="let project of projects" class="col-md-3 project">
+    <div class="project-inline">
+      <i class="fa fa-bar-chart-o"></i>
+      {{ project.name }}
+    </div>
+  </div>
+  <div class="col-md-3 project">
+    <div class="project-inline">
+      <i class="fa fa-bar-chart-o"></i>
+      project name
+    </div>
+  </div>
+</div>
 
-<table *ngFor="let list of projects" (click)="setProjectID(list.id, list.name, list.owner, list.users)">
-  {{list.name}}
-</table>
-
-<app-new-project-button>{{ this.email }}</app-new-project-button>

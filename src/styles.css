@@ -32,6 +32,10 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+.dark-text {
+  color: var(--color-1);
+}
+
 .smokey-text {
   color: var(--smoke);
 }
@@ -44,4 +48,14 @@ body {
 .white-on-glass {
   color: white;
   background-color: var(--purple-glass);
+}
+
+.modal-content {
+  color: var(--color-1);
+  background-color: var(--color-3);
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.modal-backdrop {
+  background-color: var(--color-2);
 }

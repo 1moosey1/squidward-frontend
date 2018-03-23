@@ -18,36 +18,33 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private router: Router) {}
-
   ngOnInit() {}
 
   onLogin(): void {
 
-    this.authService.login(this.email, this.password).subscribe(
-      res => {
-
-        localStorage.setItem(ApiGlobals.tokenName, res.headers.get(ApiGlobals.tokenName));
-        this.router.navigateByUrl('/projects');
-      },
-      () => {
-
-        this.displayMessage = true;
-        this.alertMessage = 'Invalid Email / Password';
-      });
+    this.authService.login(this.email, this.password)
+      .subscribe(
+        () => {
+          this.router.navigateByUrl(ApiGlobals.projectsRoute);
+        },
+        () => {
+          this.displayMessage = true;
+          this.alertMessage = 'Invalid Email / Password';
+        });
   }
 
   onRegister(): void {
 
-    this.authService.register(this.email, this.password).subscribe(
-      () => {
-
-        this.displayMessage = true;
-        this.alertMessage = 'Registration Successful';
-      },
-      () => {
-
-        this.displayMessage = true;
-        this.alertMessage = 'Invalid Registration';
-      });
+    this.authService.register(this.email, this.password)
+      .subscribe(
+        () => {
+          this.displayMessage = true;
+          this.alertMessage = 'Registration Successful';
+        },
+        () => {
+          this.displayMessage = true;
+          this.alertMessage = 'Invalid Registration';
+        }
+      );
   }
 }
