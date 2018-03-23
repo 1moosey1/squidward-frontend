@@ -10,16 +10,15 @@ import { NewUserstoryButtonComponent } from './components/userstories/new-userst
 import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'projects', component: ProjectPageComponent, /*canActivate: [AuthGuardService]*/},
   {path: 'sprints', component: SprintListComponent, canActivate: [AuthGuardService]},
   {path: 'userstories', component: UserstoryListComponent, canActivate: [AuthGuardService]},
-
   // test purpose only -------
   {path: 'sprintButton', component: NewSprintButtonComponent},
   {path: 'userButton', component: NewUserstoryButtonComponent},
   // -------------------------
+  {path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({

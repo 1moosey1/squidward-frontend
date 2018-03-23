@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable'
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class UserstoryService {
@@ -10,15 +10,17 @@ export class UserstoryService {
     return this.http.post('http://localhost:8080/api/userstory/new',
                     {sprint: sprint, story: context, difficulty: difficulty}, {withCredentials: true});
   }
+
+  getUserstories(sprintid): Observable<any> {
+    return this.http.get('http://localhost:8080/api/userstory/${sprintid}', {withCredentials: true});
+  }
 }
 
-
-
-export class userstory {
+export class Userstory {
   id;
   status;
   sprint;
-  story
+  story;
   difficulty;
   doneTag;
   startTag;
