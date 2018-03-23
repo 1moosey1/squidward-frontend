@@ -71,8 +71,7 @@ function tokenGetter(): string {
     AuthService,
     AuthGuardService,
     ProjectService,
-    SprintService,
-    UserstoryService
+    SprintService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserstoryService, Userstory } from '../../../services/userstory-service/userstory.service';
-import { SprintService } from '../../../services/sprint-service/sprint-service.service';
 
 @Component({
   selector: 'app-userstory-list',
@@ -8,16 +6,10 @@ import { SprintService } from '../../../services/sprint-service/sprint-service.s
   styleUrls: ['./userstory-list.component.css']
 })
 export class UserstoryListComponent implements OnInit {
-  private userstory;
-  private sprintID;
 
-  constructor(private userstoryService: UserstoryService, private sprintService: SprintService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.sprintID = this.sprintService.getSprint().id;
-    this.userstory = this.userstoryService.getUserstories(this.sprintID).subscribe(res => {
-      console.log(res);
-    });
   }
 
 }
