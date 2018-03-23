@@ -8,8 +8,25 @@ export class ProjectsService {
 
   private project: Project;
 
+  // DELETE !!!
+  private curCol: number = 1;
+  // DELETE !!!
+
   // injecting httpclient
   constructor(private api: ApiGlobals, private http: HttpClient) { }
+
+  // DELETE !!!
+  getCurCol(): number {
+    return this.curCol;
+  }
+  
+  updateCurCol(): void {
+    this.curCol++;
+    if (this.curCol == 4) {
+      this.curCol = 1;
+    }
+  }
+  // DELETE !!!
 
   // getting all owned projects
   getOwnedProjects(): Observable<any> {

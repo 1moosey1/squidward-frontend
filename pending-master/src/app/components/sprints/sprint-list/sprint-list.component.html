@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
+
     <div class="col">
-      
+      <!-- empty column -->
     </div>
 
     <div class="col text-center">
@@ -11,23 +12,29 @@
     <div class="col text-center">
       <app-new-sprint-button></app-new-sprint-button>
     </div>
+
   </div>
 
-  <!-- style with .row-proj -->
-  <div class="row row-proj">
-    <div class="col">
-      
-    </div>
+  <ng-container *ngFor="let list of sprints; let i = index">
+    <!-- style with .row-proj -->
+    <div class="row row-proj">
 
-    <div class="col">
-      <!-- style with .btn-test -->
-      <button *ngFor="let list of sprints" type="button" class="btn btn-lg btn-test" (click)="setSprint(list.id, list.number, list.project, list.release)">
-        <img src="../../../assets/images/arrow.svg" width="15" height="15"/> {{ list.number }}
-      </button>
-    </div>
+      <div class="col">
+        <!-- empty column -->
+      </div>
 
-    <div class="col">
-      
+      <div class="col">
+        <!-- style with .btn-test -->
+        <button type="button" class="btn btn-lg btn-test" (click)="setSprint(list.id, list.number, list.project, list.release)">
+          <img src="../../../assets/images/arrow.svg" width="15" height="15"/> {{ list.number }}
+        </button>
+      </div>
+
+      <div class="col">
+        <!-- empty column -->
+      </div>
+
     </div>
-  </div>
+  </ng-container>
+
 </div> 
