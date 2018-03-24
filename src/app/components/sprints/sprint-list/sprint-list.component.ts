@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class SprintListComponent implements OnInit {
   @Input()
   private sprints;
+  private project;
 
   constructor(private router: Router, private sprintService: SprintService) { }
 

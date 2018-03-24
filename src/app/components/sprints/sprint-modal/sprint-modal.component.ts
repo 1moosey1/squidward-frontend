@@ -7,7 +7,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SprintModalComponent implements OnInit {
 
-  public sprint_num;
   public release;
   
   @Output()
@@ -18,8 +17,7 @@ export class SprintModalComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.submitEvent.emit({sprint_num: this.sprint_num, release: this.release});
-    this.sprint_num = '';
+    this.submitEvent.emit({release: this.release});
     this.release = '';
   }
 
