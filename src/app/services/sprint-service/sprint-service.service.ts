@@ -8,6 +8,7 @@ import { AuthService } from '../auth-service/auth.service';
 @Injectable()
 export class SprintService {
   private sprints = 'sprintInfo';
+  private sprint = 'sprint';
 
   constructor(private http: HttpClient,  private authService: AuthService) { }
 
@@ -41,5 +42,13 @@ export class SprintService {
         observable.next(JSON.parse(sprints));
       }
     });
+  }
+
+  setSprint(sprint) {
+    localStorage.setItem(this.sprint, JSON.stringify(sprint));
+  }
+
+  getSprint() {
+    return JSON.parse(localStorage.getItem(this.sprint));
   }
 }
