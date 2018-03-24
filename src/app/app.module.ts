@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppRoutesModule } from './app-routes.module';
 import { JwtModule } from '@auth0/angular-jwt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 // Components
 import { ApiGlobals } from './utility/ApiGlobals';
@@ -19,7 +21,7 @@ import { AlertComponent } from './components/utility/alert/alert.component';
 import { NavbarComponent } from './components/utility/navbar/navbar.component';
 import { ProjectPageComponent } from './components/project/project-page/project-page.component';
 import { ProjectModalComponent } from './components/project/project-modal/project-modal.component';
-
+import { BurndownComponent } from './components/burndown/burndown.component';
 // Services
 import { AuthService } from './services/auth-service/auth.service';
 import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
@@ -28,6 +30,7 @@ import { SprintService } from './services/sprint-service/sprint-service.service'
 import { UserstoryService } from './services/userstory-service/userstory.service';
 import { SprintPageComponent } from './components/sprints/sprint-page/sprint-page.component';
 import { SprintModalComponent } from './components/sprints/sprint-modal/sprint-modal.component';
+
 
 function tokenGetter(): string {
   return localStorage.getItem(ApiGlobals.tokenName);
@@ -48,12 +51,15 @@ function tokenGetter(): string {
     ProjectModalComponent,
     SprintPageComponent,
     SprintModalComponent,
+    BurndownComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutesModule,
     FormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
     RouterModule,
     JwtModule.forRoot({
       config: {
