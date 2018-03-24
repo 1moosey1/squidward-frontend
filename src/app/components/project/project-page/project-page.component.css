@@ -7,6 +7,12 @@
   outline: none !important;
 }
 
+.btn-new-s {
+  color: var(--color-2);
+  background-color: transparent;
+  outline: none !important;
+}
+
 .btn-new:hover {
   color: var(--purple-glass);
 }
