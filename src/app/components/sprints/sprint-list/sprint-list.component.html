@@ -1,7 +1,10 @@
-<p>
-  sprint-list works!
-</p>
+<div class="row text-center seaweed">
+  <div *ngFor="let list of sprints" class="col-md-3 project">
+    <!-- TODO:: need sprintid -->
+    <div class="project-inline" (click)="openUserstories(list.id)">
+      <i class="fa fa-bar-chart-o"></i>
+      Sprint {{ list.number }}
+    </div>
+  </div>
+</div>
 
-<table *ngFor="let list of sprints" (click)="setSprint(list.id, list.number, list.project, list.release)">{{list.number}}</table>
-
-<app-new-sprint-button></app-new-sprint-button>

@@ -10,6 +10,7 @@ export class ProjectService {
 
   private ownedKey = 'ownedProjects';
   private developerKey = 'developerProjects';
+  private project = 'project';
 
   constructor(private http: HttpClient,
               private authService: AuthService) {}
@@ -79,5 +80,15 @@ export class ProjectService {
           });
     });
   }
+
+  setProject(project) {
+    localStorage.setItem(this.project, JSON.stringify(project));
+  }
+
+  getProject() {
+    return JSON.parse(localStorage.getItem(this.project));
+  }
+
+
 }
 
