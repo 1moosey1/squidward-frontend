@@ -29,7 +29,6 @@ export class SprintPageComponent implements OnInit {
     this.sprintService.getSprints(this.projectid, refresh).subscribe(
       (res: Sprint[]) => {
         this.sprints = res;
-        // console.log(this.sprints);
       },
       () => {
         this.displayMessage = true;
@@ -40,8 +39,9 @@ export class SprintPageComponent implements OnInit {
 
   onNewSprints(event): void {
     const project = this.projectService.getProject();
-    if (this.sprints === null) {
-    this.sprintService.addNewSprint('1', project, event.release)
+
+    if (this.sprints.length < 1) {
+    this.sprintService.addNewSprint('1', project, event.release, event.start_date, event.end_date)
       .subscribe(
         () => {
           this.displayMessage = true;
@@ -58,7 +58,7 @@ export class SprintPageComponent implements OnInit {
       // console.log('herro');
       const num = this.sprints[this.sprints.length - 1];
       const sprintNum = num.number + 1;
-      this.sprintService.addNewSprint( sprintNum , project, event.release)
+      this.sprintService.addNewSprint( sprintNum , project, event.release, event.start_date, event.end_date)
       .subscribe(
         () => {
           this.displayMessage = true;
