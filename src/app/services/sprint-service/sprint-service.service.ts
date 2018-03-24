@@ -13,8 +13,11 @@ export class SprintService {
   constructor(private http: HttpClient,  private authService: AuthService) { }
 
   addNewSprint(sprint_number, project, release): Observable<any> {
-    return this.http.post('http://localhost:8080/api/sprint/new',
-                          {'number': sprint_number, 'project': project, 'release': release });
+    return this.http.post('http://localhost:8080/api/sprint/new', 
+                        {'number': sprint_number, 'project': {id: project.id}, 'release': release});
+
+    // return this.http.post('http://localhost:8080/api/sprint/new',
+    //                       {'number': sprint_number, 'project': project, 'release': release });
   }
 
   
