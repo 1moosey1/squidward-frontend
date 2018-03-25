@@ -11,5 +11,9 @@
 }
 
 .logout-button:hover {
-  color: var(--smoke);
+  color: var(--purple-glass);
+}
+
+.home:hover {
+  color: var(--purple-glass);
 }

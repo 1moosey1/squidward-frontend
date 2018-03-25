@@ -1,16 +1,9 @@
 .btn-new {
   color: var(--color-2);
   background-color: transparent;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
   outline: none !important;
-}
-
-.btn-new-s {
-  color: var(--color-2);
-  background-color: transparent;
-  outline: none !important;
+  padding-left: 95%;
+  box-shadow: none;
 }
 
 .btn-new:hover {

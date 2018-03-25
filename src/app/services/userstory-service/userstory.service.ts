@@ -11,7 +11,6 @@ export class UserstoryService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   newUserstories(sprint, story, difficulty): Observable<any> {
-    console.log(sprint, story, difficulty);
     return this.http.post('http://localhost:8080/api/userstory/new',
                     {'story': story, 'difficulty': difficulty, 'sprint': {id: sprint.id}});
   }

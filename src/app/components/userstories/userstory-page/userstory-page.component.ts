@@ -18,12 +18,17 @@ export class UserstoryPageComponent implements OnInit {
   public alertMessage: string;
   public userstories;
   public userstoryStatus;
+
+  private sprint;
+  private project;
   
   constructor(private userstoryService: UserstoryService, private router: Router, private route: ActivatedRoute,
      private projectService: ProjectService, private sprintService: SprintService ) { }
 
   ngOnInit() {
     this.sprintid = this.route.snapshot.paramMap.get('sprintid');
+    this.sprint = this.sprintService.getSprint();
+    this.project = this.projectService.getProject();
     this.loadUserstories(true);
   }
 
@@ -58,6 +63,10 @@ export class UserstoryPageComponent implements OnInit {
         }
       
       );
+  }
+
+  back() {
+    this.router.navigate(['/sprints', this.project.id]);
   }
 
 }

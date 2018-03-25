@@ -1,13 +1,12 @@
-.btn-new {
+  .btn-new-s {
     color: var(--color-2);
-    background-color: transparent;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+    background-color: transparent !important;
     outline: none !important;
+    padding-left: 95%;
+    box-shadow: none;
   }
   
-  .btn-new:hover {
+  .btn-new-s:hover {
     color: var(--purple-glass);
   }
   
