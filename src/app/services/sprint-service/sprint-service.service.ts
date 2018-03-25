@@ -15,7 +15,7 @@ export class SprintService {
   addNewSprint(sprint_number, project, release, start_date, end_date): Observable<any> {
     return this.http.post('http://localhost:8080/api/sprint/new', 
                         {'number': sprint_number, 'project': {id: project.id}, 'release': release, 
-                        'start_date': start_date, 'end_date': end_date});
+                        'startDate': start_date, 'endDate': end_date});
   }
   
   getSprints(projectid: number, refresh: boolean): Observable<any> {
