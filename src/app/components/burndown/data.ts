@@ -11,7 +11,7 @@ export var single = [
 
 export var multi = [
   {
-    "name": "",
+    "name": "Ideal",
     "series": [
       {
         "name": "Day 0",
@@ -58,12 +58,11 @@ export var multi = [
         "value": 0
       },
     ]
-
     
   },
 
   {
-    "name": "Sprint 1",
+    "name": "Actual",
     "series": [
       {
         "name": "Day 1",
@@ -71,39 +70,39 @@ export var multi = [
       },
       {
         "name": "Day 2",
-        "value": 89
+        "value": 95
       },
       {
         "name": "Day 3",
-        "value": 79
+        "value": 95
       },
       {
         "name": "Day 4",
-        "value": 69
+        "value": 90
       },
       {
         "name": "Day 5",
-        "value": 50
+        "value": 80
       },
       {
         "name": "Day 6",
-        "value": 45
+        "value": 75
       },
       {
         "name": "Day 7",
-        "value": 30
+        "value": 70
       },
       {
         "name": "Day 8",
-        "value": 20
+        "value": 60
       },
       {
         "name": "Day 9",
-        "value": 15
+        "value": 55
       },
       {
         "name": "Day 10",
-        "value": 5
+        "value": 45
       },
 
     ]
