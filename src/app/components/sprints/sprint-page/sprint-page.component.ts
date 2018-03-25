@@ -28,7 +28,7 @@ export class SprintPageComponent implements OnInit {
   loadSprints(refresh: boolean): void {
     this.sprintService.getSprints(this.projectid, refresh).subscribe(
       (res: Sprint[]) => {
-        this.sprints = res;
+        this.sprints = res.reverse();
       },
       () => {
         this.displayMessage = true;
@@ -56,7 +56,7 @@ export class SprintPageComponent implements OnInit {
       );
     } else {
       // console.log('herro');
-      const num = this.sprints[this.sprints.length - 1];
+      const num = this.sprints[0];
       const sprintNum = num.number + 1;
       this.sprintService.addNewSprint( sprintNum , project, event.release, event.start_date, event.end_date)
       .subscribe(
