@@ -26,10 +26,6 @@
     "@swimlane/ngx-charts": "^7.1.1",
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
-<<<<<<< HEAD
-    "d3": "^5.0.0",
-=======
->>>>>>> b808e55910065d970abc0eab63434ecf761d499d
     "moment": "^2.21.0",
     "ngx-cookie-service": "^1.0.10",
     "rxjs": "^5.5.6",

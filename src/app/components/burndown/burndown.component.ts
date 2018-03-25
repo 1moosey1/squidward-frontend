@@ -1,5 +1,4 @@
 
-
 import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -8,23 +7,7 @@ import {single, multi} from './data';
 
 @Component({
   selector: 'app-root',
-  template: `
-  <ngx-charts-line-chart
-    [view]="view"
-    [scheme]="colorScheme"
-    [results]="multi"
-    [gradient]="gradient"
-    [xAxis]="showXAxis"
-    [yAxis]="showYAxis"
-    [legend]="showLegend"
-    [showXAxisLabel]="showXAxisLabel"
-    [showYAxisLabel]="showYAxisLabel"
-    [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel"
-    [autoScale]="autoScale"
-    (select)="onSelect($event)">
-  </ngx-charts-line-chart>
-`,
+  templateUrl: './burndown.component.html',
   styleUrls: ['./burndown.component.css']
 })
 export class BurndownComponent {
@@ -33,27 +16,29 @@ export class BurndownComponent {
 
   view: any[] = [700, 400];
   
-    // options
+   // options
   showXAxis = true;
   showYAxis = true;
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Day of Scrum';
   showYAxisLabel = true;
-  yAxisLabel = 'Population';
- 
-   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  yAxisLabel = 'Points Remaining';
+
+  colorScheme = {
+    domain: ['#17202A', '#A10A28', '#C7B42C', '#AAAAAA']
   };
 
   // line, area
   autoScale = true;
-
-  constructor() { Object.assign(this, { single }) }
-
+  
+  constructor() {
+    Object.assign(this, {single, multi})   
+  }
+  
   onSelect(event) {
     console.log(event);
   }
-
+  
 }

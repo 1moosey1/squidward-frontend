@@ -51,7 +51,7 @@ function tokenGetter(): string {
     ProjectModalComponent,
     SprintPageComponent,
     SprintModalComponent,
-    BurndownComponent,
+    BurndownComponent, 
   ],
   imports: [
     BrowserModule,
@@ -81,6 +81,6 @@ function tokenGetter(): string {
     ProjectService,
     SprintService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [BurndownComponent]
 })
 export class AppModule {}
