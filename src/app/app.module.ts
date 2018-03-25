@@ -48,13 +48,11 @@ function tokenGetter(): string {
     ProjectModalComponent,
     SprintPageComponent,
     SprintModalComponent,
-<<<<<<< HEAD
     BurndownComponent, 
-=======
     UserstoryListComponent,
     UserstoryPageComponent,
     UserstoryModalComponent,
->>>>>>> b89ef2c00a32e489bfc94cc8f884ffec011b6d7b
+
   ],
   imports: [
     BrowserModule,
@@ -85,6 +83,6 @@ function tokenGetter(): string {
     SprintService,
     UserstoryService
   ],
-  bootstrap: [BurndownComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

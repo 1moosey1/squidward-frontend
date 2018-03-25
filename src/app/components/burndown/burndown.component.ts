@@ -7,7 +7,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {single, multi} from './data';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-burndown',
   templateUrl: './burndown.component.html',
   styleUrls: ['./burndown.component.css']
 })
