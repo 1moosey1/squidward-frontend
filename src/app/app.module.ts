@@ -13,8 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ProjectListComponent } from './components/project/project-list/project-list.component';
 import { SprintListComponent } from './components/sprints/sprint-list/sprint-list.component';
 import { UserstoryListComponent } from './components/userstories/userstory-list/userstory-list.component';
-import { UserstoryComponent } from './components/userstories/userstory/userstory.component';
-import { NewUserstoryButtonComponent } from './components/userstories/new-userstory-button/new-userstory-button.component';
+import { UserstoryPageComponent } from './components/userstories/userstory-page/userstory-page.component';
+import { UserstoryModalComponent } from './components/userstories/userstory-modal/userstory-modal.component';
 import { AlertComponent } from './components/utility/alert/alert.component';
 import { NavbarComponent } from './components/utility/navbar/navbar.component';
 import { ProjectPageComponent } from './components/project/project-page/project-page.component';
@@ -39,15 +39,15 @@ function tokenGetter(): string {
     LoginComponent,
     ProjectListComponent,
     SprintListComponent,
-    UserstoryListComponent,
-    UserstoryComponent,
-    NewUserstoryButtonComponent,
     AlertComponent,
     NavbarComponent,
     ProjectPageComponent,
     ProjectModalComponent,
     SprintPageComponent,
     SprintModalComponent,
+    UserstoryListComponent,
+    UserstoryPageComponent,
+    UserstoryModalComponent,
   ],
   imports: [
     BrowserModule,

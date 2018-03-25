@@ -1,0 +1,34 @@
+<div class="modal fade" id="userstoryModal" tabindex="-1" role="dialog"
+     aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="projectModalLabel">Create User Story</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input [(ngModel)]="title"
+          name="title" class="form-control" placeholder="Title"><br/>
+
+        <input [(ngModel)]="asA"
+          name="as-a" class="form-control" placeholder="As a"><br/>
+
+        <input [(ngModel)]="iWant"
+          name="i-want" class="form-control" placeholder="I want"><br/>
+
+        <input [(ngModel)]="soThat"
+          name="so-that" class="form-control" placeholder="So that"><br/>
+
+        <input [(ngModel)]="points"
+          name="points" class="form-control" placeholder="Points" type="number" min="0">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-submit" data-dismiss="modal">Close</button>
+        <button (click)="onSubmit()"
+                type="button" class="btn btn-submit" data-dismiss="modal">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
