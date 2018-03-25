@@ -1,7 +1,8 @@
 
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {single, multi} from './data';
 
@@ -10,7 +11,11 @@ import {single, multi} from './data';
   templateUrl: './burndown.component.html',
   styleUrls: ['./burndown.component.css']
 })
-export class BurndownComponent {
+export class BurndownComponent implements OnInit  {
+  
+  ngOnInit() {
+  }
+   
   single: any[];
   multi: any[];
 
