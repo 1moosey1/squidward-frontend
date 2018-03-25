@@ -1,10 +1,11 @@
 <div class="row text-center seaweed">
-  <div *ngFor="let list of sprints" class="col-md-3 project">
-    <!-- TODO:: need sprintid -->
+  <div *ngFor="let list of sprints" class="col-md-6 offset-md-3 project">
     <div class="project-inline" (click)="openUserstories(list)">
       <i class="fa fa-bar-chart-o"></i>
-      Sprint {{ list.number }}
-    </div>
+      Sprint {{ list.number }} <br/>
+      Release Sprint? {{list.release}} <br/>
+      {{list.startDate}} - {{list.endDate}} <br/>
+    </div> 
   </div>
 </div>
 
