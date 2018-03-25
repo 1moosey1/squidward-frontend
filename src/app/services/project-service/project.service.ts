@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { ApiGlobals } from '../../utility/ApiGlobals';
 import Project from '../../utility/Project';
@@ -62,21 +62,25 @@ export class ProjectService {
     return new Observable<any>(observable => {
 
       this.http.post(ApiGlobals.apiRoot + ApiGlobals.newURI,
-        {name: projectName})
+        {name: projectName}, {observe: 'response'})
         .subscribe(
-          () => { observable.next(); },
+          (res: HttpResponse<String>) => { console.log(res); observable.next(); },
           (err: HttpErrorResponse) => {
+
+            if (err.status === 200) {
+              observable.next();
+            }
 
             if (err.status === 401) {
 
               this.authService.logout();
+              observable.error();
 
             } else if (err.status === 403) {
 
               window.location.assign(err.error);
+              observable.error();
             }
-
-            observable.error();
           });
     });
   }

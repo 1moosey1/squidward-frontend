@@ -8,14 +8,15 @@ import { AuthService } from '../auth-service/auth.service';
 @Injectable()
 export class SprintService {
   private sprints = 'sprintInfo';
+  private sprint = 'sprint';
 
   constructor(private http: HttpClient,  private authService: AuthService) { }
 
-  addNewSprint(sprint_number, project, release): Observable<any> {
-    return this.http.post('http://localhost:8080/api/sprint/new',
-                          {'number': sprint_number, 'project': project, 'release': release });
+  addNewSprint(sprint_number, project, release, start_date, end_date): Observable<any> {
+    return this.http.post('http://localhost:8080/api/sprint/new', 
+                        {'number': sprint_number, 'project': {id: project.id}, 'release': release, 
+                        'startDate': start_date, 'endDate': end_date});
   }
-
   
   getSprints(projectid: number, refresh: boolean): Observable<any> {
     return new Observable<any>(observable => {
@@ -41,5 +42,13 @@ export class SprintService {
         observable.next(JSON.parse(sprints));
       }
     });
+  }
+
+  setSprint(sprint) {
+    localStorage.setItem(this.sprint, JSON.stringify(sprint));
+  }
+
+  getSprint() {
+    return JSON.parse(localStorage.getItem(this.sprint));
   }
 }

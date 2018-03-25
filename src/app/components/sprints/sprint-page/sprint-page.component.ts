@@ -4,6 +4,7 @@ import { Router, Route, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { ProjectService } from '../../../services/project-service/project.service';
 import Sprint from '../../../utility/Sprint';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-sprint-page',
@@ -22,14 +23,20 @@ export class SprintPageComponent implements OnInit {
 
   ngOnInit() {
     this.projectid = this.route.snapshot.paramMap.get('projectid');
-    this.loadSprints(true);
+    this.loadSprints(false);
   }
 
   loadSprints(refresh: boolean): void {
     this.sprintService.getSprints(this.projectid, refresh).subscribe(
       (res: Sprint[]) => {
-        this.sprints = res;
-        // console.log(this.sprints);
+        this.sprints = res.reverse();
+        const sprintsize = this.sprints.length;
+        
+        for (let i = 0; i < sprintsize; i++) {
+          this.sprints[i].startDate = moment(this.sprints[i].startDate).format('MM/DD/YYYY');
+          this.sprints[i].endDate = moment(this.sprints[i].endDate).format('MM/DD/YYYY');
+        }
+
       },
       () => {
         this.displayMessage = true;
@@ -40,8 +47,9 @@ export class SprintPageComponent implements OnInit {
 
   onNewSprints(event): void {
     const project = this.projectService.getProject();
-    if (this.sprints === null) {
-    this.sprintService.addNewSprint('1', project, event.release)
+
+    if (this.sprints.length < 1) {
+    this.sprintService.addNewSprint('1', project, event.release, event.start_date, event.end_date)
       .subscribe(
         () => {
           this.displayMessage = true;
@@ -56,9 +64,9 @@ export class SprintPageComponent implements OnInit {
       );
     } else {
       // console.log('herro');
-      const num = this.sprints[this.sprints.length - 1];
+      const num = this.sprints[0];
       const sprintNum = num.number + 1;
-      this.sprintService.addNewSprint( sprintNum , project, event.release)
+      this.sprintService.addNewSprint( sprintNum , project, event.release, event.start_date, event.end_date)
       .subscribe(
         () => {
           this.displayMessage = true;

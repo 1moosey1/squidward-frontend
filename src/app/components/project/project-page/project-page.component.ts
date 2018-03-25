@@ -38,6 +38,7 @@ export class ProjectPageComponent implements OnInit {
     this.projectService.createNewProject(projectname)
       .subscribe(
         () => {
+          console.log('works');
 
           this.displayMessage = true;
           this.alertMessage = 'Project Hook Created';

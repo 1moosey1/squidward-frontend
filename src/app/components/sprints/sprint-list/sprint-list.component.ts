@@ -18,5 +18,11 @@ export class SprintListComponent implements OnInit {
   ngOnInit() {
   }
 
+  openUserstories(sprint) {
+    this.sprintService.setSprint(sprint);
+    console.log(this.sprintService.getSprint());
+    this.router.navigate(['/userstories', sprint.id]);
+  }
+
 
 }
