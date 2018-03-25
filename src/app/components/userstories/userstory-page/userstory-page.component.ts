@@ -23,32 +23,31 @@ export class UserstoryPageComponent implements OnInit {
 
   ngOnInit() {
     this.sprintid = this.route.snapshot.paramMap.get('sprintid');
-    //this.loadSprints(true);
+    this.loadUserstories(true);
   }
 
-  // loadSprints(refresh: boolean): void {
-  //   this.sprintService.getSprints(this.sprintid, refresh).subscribe(
-  //     (res: Userstory[]) => {
-  //       this.userstories = res;
-  //       // console.log(this.sprints);
-  //     },
-  //     () => {
-  //       this.displayMessage = true;
-  //       this.alertMessage = 'Error: Could not load user stories';
-  //     }
-  //   );
-  // }
+  loadUserstories(refresh: boolean): void {
+    this.userstoryService.getUserstories(this.sprintid, refresh).subscribe(
+      (res: Userstory[]) => {
+        this.userstories = res;
+        console.log(this.userstories);
+      },
+      () => {
+        this.displayMessage = true;
+        this.alertMessage = 'Error: Could not load user stories';
+      }
+    );
+  }
 
   onNewUserstories(event): void {
     const project = this.projectService.getProject();
-    const story = event.asA + event.iWant + event.soThat;
+    const story = 'As a ' + event.asA + 'I want ' + event.iWant + 'so that ' + event.soThat;
     this.userstoryService.newUserstories(this.sprintService.getSprint(), story, event.points)
       .subscribe(
         (res) => {
           this.displayMessage = true;
           this.alertMessage = 'user story added successfully';
-          console.log(res);
-          //this.loadSprints(true);
+          this.loadUserstories(true);
         },
         () => {
           this.displayMessage = true;
