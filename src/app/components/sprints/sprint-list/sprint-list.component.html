@@ -1,5 +1,5 @@
 <div class="row text-center seaweed">
-  <div *ngFor="let list of sprints" class="col-md-6 offset-md-3 project">
+  <div *ngFor="let list of sprints.reverse()" class="col-md-6 offset-md-3 project">
     <div class="project-inline" (click)="openUserstories(list)">
       <i class="fa fa-bar-chart-o"></i>
       Sprint {{ list.number }} <br/>
