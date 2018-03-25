@@ -32,6 +32,7 @@ export class UserstoryModalComponent implements OnInit {
     this.asA = '';
     this.iWant = '';
     this.soThat = '';
+    this.points = '';
   }
 
 }

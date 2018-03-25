@@ -19,7 +19,7 @@ export class UserstoryPageComponent implements OnInit {
   public userstories;
   
   constructor(private userstoryService: UserstoryService, private router: Router, private route: ActivatedRoute,
-     private projectService: ProjectService ) { }
+     private projectService: ProjectService, private sprintService: SprintService ) { }
 
   ngOnInit() {
     this.sprintid = this.route.snapshot.paramMap.get('sprintid');
@@ -42,16 +42,18 @@ export class UserstoryPageComponent implements OnInit {
   onNewUserstories(event): void {
     const project = this.projectService.getProject();
     const story = event.asA + event.iWant + event.soThat;
-    this.userstoryService.newUserstories(this.sprintid, story, event.difficulty)
+    this.userstoryService.newUserstories(this.sprintService.getSprint(), story, event.points)
       .subscribe(
-        () => {
+        (res) => {
           this.displayMessage = true;
           this.alertMessage = 'user story added successfully';
+          console.log(res);
           //this.loadSprints(true);
         },
         () => {
           this.displayMessage = true;
           this.alertMessage = 'user story was unsucessfully created';
+          console.log('error');
         }
       
       );
