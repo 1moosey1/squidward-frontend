@@ -6,22 +6,9 @@ import { Observable } from 'rxjs/Observable'
 export class UserstoryService {
   constructor(private http: HttpClient) { }
 
-  newUserstories(sprint, context, difficulty): Observable<any> {
+  newUserstories(sprint, story, difficulty): Observable<any> {
+    console.log(sprint, story, difficulty);
     return this.http.post('http://localhost:8080/api/userstory/new',
-                    {sprint: sprint, story: context, difficulty: difficulty}, {withCredentials: true});
+                    {'story': story, 'difficulty': difficulty, 'sprint': {id: sprint.id}});
   }
-}
-
-
-
-export class userstory {
-  id;
-  status;
-  sprint;
-  story
-  difficulty;
-  doneTag;
-  startTag;
-  startDate;
-  doneDate;
 }
