@@ -17,6 +17,7 @@ export class UserstoryPageComponent implements OnInit {
   public displayMessage = false;
   public alertMessage: string;
   public userstories;
+  public userstoryStatus;
   
   constructor(private userstoryService: UserstoryService, private router: Router, private route: ActivatedRoute,
      private projectService: ProjectService, private sprintService: SprintService ) { }
@@ -30,6 +31,7 @@ export class UserstoryPageComponent implements OnInit {
     this.userstoryService.getUserstories(this.sprintid, refresh).subscribe(
       (res: Userstory[]) => {
         this.userstories = res;
+        // this.userstoryStatus = this.userstories.status;
         console.log(this.userstories);
       },
       () => {
@@ -41,7 +43,7 @@ export class UserstoryPageComponent implements OnInit {
 
   onNewUserstories(event): void {
     const project = this.projectService.getProject();
-    const story = 'As a ' + event.asA + 'I want ' + event.iWant + 'so that ' + event.soThat;
+    const story = 'As a ' + event.asA + ' I want ' + event.iWant + ' so that ' + event.soThat;
     this.userstoryService.newUserstories(this.sprintService.getSprint(), story, event.points)
       .subscribe(
         (res) => {

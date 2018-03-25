@@ -7,7 +7,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class UserstoryModalComponent implements OnInit {
 
-  public title;
   public asA;
   public iWant;
   public soThat;
@@ -22,13 +21,11 @@ export class UserstoryModalComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.submitEvent.emit({title: this.title, 
-                          asA: this.asA, 
+    this.submitEvent.emit({asA: this.asA, 
                           iWant: this.iWant, 
                           soThat: this.soThat, 
                           points: this.points});
     
-    this.title = '';
     this.asA = '';
     this.iWant = '';
     this.soThat = '';
