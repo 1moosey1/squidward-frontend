@@ -4,7 +4,13 @@
     <div class="project-inline">
       <i class="fa fa-bar-chart-o"></i>
       {{ list.story }} <br/>
-      {{ list.difficulty }}
+      Difficulty: {{ list.difficulty }} <br/>
+      <!-- Start URL: {{  }} <br/> -->
+      <!-- End URL: {{  }} -->
+      <!-- {{userstoryStatus.statusType}} -->
+      <span *ngIf="list.status.statusType == 'DONE'" class="badge badge-pill badge-success">Done</span>
+      <span *ngIf="list.status.statusType == 'TODO'" class="badge badge-pill badge-danger">To Do</span>
+      <span *ngIf="list.status.statusType == 'IN PROGRESS'" class="badge badge-pill badge-warning">In Progress</span>
     </div> 
   </div>
   <br/>

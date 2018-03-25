@@ -49,6 +49,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem(ApiGlobals.tokenName);
+    localStorage.clear();
     this.router.navigateByUrl(ApiGlobals.loginRoute);
   }
 }
