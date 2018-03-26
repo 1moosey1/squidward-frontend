@@ -30,6 +30,8 @@ import { SprintService } from './services/sprint-service/sprint-service.service'
 import { UserstoryService } from './services/userstory-service/userstory.service';
 import { SprintPageComponent } from './components/sprints/sprint-page/sprint-page.component';
 import { SprintModalComponent } from './components/sprints/sprint-modal/sprint-modal.component';
+import { GraphComponent } from './components/graphs/graph/graph.component';
+import { GraphService } from './services/graph/graph.service';
 
 
 function tokenGetter(): string {
@@ -52,7 +54,11 @@ function tokenGetter(): string {
     UserstoryListComponent,
     UserstoryPageComponent,
     UserstoryModalComponent,
+<<<<<<< HEAD
 
+=======
+    GraphComponent
+>>>>>>> 50a6bf5e9414edbd1f83b673bde14b09b25b31b5
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,9 @@ function tokenGetter(): string {
         ],
         skipWhenExpired: true
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [
     ApiGlobals,
@@ -81,7 +89,8 @@ function tokenGetter(): string {
     AuthGuardService,
     ProjectService,
     SprintService,
-    UserstoryService
+    UserstoryService,
+    GraphService
   ],
   bootstrap: [AppComponent]
 })

@@ -62,7 +62,7 @@ export class ProjectService {
     return new Observable<any>(observable => {
 
       this.http.post(ApiGlobals.apiRoot + ApiGlobals.newURI,
-        {name: projectName}, {observe: 'response'})
+        {name: projectName})
         .subscribe(
           (res: HttpResponse<String>) => { console.log(res); observable.next(); },
           (err: HttpErrorResponse) => {
@@ -72,13 +72,10 @@ export class ProjectService {
             }
 
             if (err.status === 401) {
-
               this.authService.logout();
               observable.error();
 
             } else if (err.status === 403) {
-
-              window.location.assign(err.error);
               observable.error();
             }
           });
