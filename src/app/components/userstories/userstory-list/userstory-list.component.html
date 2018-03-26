@@ -1,3 +1,53 @@
-<p>
-  userstory-list works!
-</p>
+<div class="row text-center seaweed">
+  <!-- TODO -->
+  <div *ngFor="let list of userstories" class="col-md-4 project">
+    <!-- added rounded to class -->
+    <div class="project-inline rounded">
+      
+      <span *ngIf="list.status.statusType == 'DONE'" class="badge badge-pill badge-success badge-text">Done</span>
+      <span *ngIf="list.status.statusType == 'TODO'" class="badge badge-pill badge-danger badge-text">To Do</span>
+      <span *ngIf="list.status.statusType == 'IN PROGRESS'" class="badge badge-pill badge-warning badge-text">In Progress</span>
+
+      <!-- added caret image -->
+      <br/><i class="fa fa-caret-right"></i>
+      {{ list.story }} <br/>
+
+      <i class="fa fa-caret-right"></i>
+      Start tag: {{ list.startTag }} <br/>
+
+      <i class="fa fa-caret-right"></i>
+      End tag: {{ list.doneTag }} <br/>
+
+      <i class="fa fa-caret-right"></i>
+      Difficulty: {{ list.difficulty }} <br/>
+
+      <span *ngIf="list.startURL != null"><i class="fa fa-caret-right"></i> Start URL: {{ list.startURL }}<br/></span>
+      <span *ngIf="list.endURL != null"><i class="fa fa-caret-right"></i> End URL: {{ list.endURL }}</span>
+
+    </div> 
+  </div>
+  <br/>
+
+<!-- IN PROGRESS -->
+
+  <!-- <div *ngFor="let list of userstories" class="col-md-4 project">
+    <div class="project-inline">
+      <i class="fa fa-bar-chart-o"></i>
+      {{ list.story }} <br/>
+      {{ list.difficulty }}
+    </div> 
+  </div>
+  <br/> -->
+
+  <!-- DONE -->
+  <!-- <div *ngFor="let list of userstories" class="col-md-4 project">
+    <div class="project-inline">
+      <i class="fa fa-bar-chart-o"></i>
+      {{ list.story }} <br/>
+      {{ list.difficulty }}
+    </div> 
+  </div> -->
+
+  </div>
+  
+  

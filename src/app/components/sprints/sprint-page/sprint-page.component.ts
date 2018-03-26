@@ -17,12 +17,15 @@ export class SprintPageComponent implements OnInit {
   public displayMessage = false;
   public alertMessage: string;
   public sprints;
+
+  private project;
   
   constructor(private sprintService: SprintService, private router: Router, private route: ActivatedRoute,
      private projectService: ProjectService ) { }
 
   ngOnInit() {
     this.projectid = this.route.snapshot.paramMap.get('projectid');
+    this.project = this.projectService.getProject();
     this.loadSprints(false);
   }
 
@@ -63,7 +66,6 @@ export class SprintPageComponent implements OnInit {
       
       );
     } else {
-      // console.log('herro');
       const num = this.sprints[0];
       const sprintNum = num.number + 1;
       this.sprintService.addNewSprint( sprintNum , project, event.release, event.start_date, event.end_date)
@@ -83,6 +85,8 @@ export class SprintPageComponent implements OnInit {
     }
   }
 
-
+  back() {
+    this.router.navigate(['/projects']);
+  }
 
 }

@@ -1,13 +1,11 @@
-.btn-new {
+.btn-new-s {
     color: var(--color-2);
-    background-color: transparent;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+    background-color: transparent !important;
     outline: none !important;
+    box-shadow: none;
   }
   
-  .btn-new:hover {
+  .btn-new-s:hover {
     color: var(--purple-glass);
   }
   
@@ -19,4 +17,13 @@
     margin: 1em 0;
     padding: 0;
   }
+
+  /* added the following */
+.title {
+  color: var(--color-2);
+}
+
+.title:hover {
+  color: var(--purple-glass);
+}
   

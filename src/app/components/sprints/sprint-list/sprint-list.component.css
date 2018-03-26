@@ -1,21 +1,35 @@
 .project {
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.project-inline {
+  /* added the following */
+  color: var(--color-3);
+  background-color: var(--color-2);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  padding: 5%;
+  /* */
   
-  }
-  
-  .project-inline {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--color-2);
-    border-radius: 4%;
-  }
-  
-  .project-inline:hover {
-    border-width: 2px;
-    border-color: var(--purple-glass);
-    border-radius: 4%;
-  }
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-2);
+  border-radius: 4%;
+}
+
+.project-inline:hover {
+  /* border-width: 2px;
+border-color: var(--purple-glass);
+border-radius: 4%; */
+
+/* added the following */
+color: var(--color-2);
+background-color: var(--purple-glass);
+}
   

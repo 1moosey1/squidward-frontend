@@ -7,6 +7,11 @@
   color: var(--purple-glass);
 }
 
+/* added the following */
+#projectModalLabel {
+  color: var(--color-2);
+}
+
 /*.btn-submit {*/
   /*color: var(--smoke);*/
   /*background-color: var(--color-2);*/
