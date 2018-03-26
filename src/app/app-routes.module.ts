@@ -8,6 +8,7 @@ import { UserstoryPageComponent } from './components/userstories/userstory-page/
 import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
 import { SprintPageComponent } from './components/sprints/sprint-page/sprint-page.component';
 import { SprintModalComponent } from './components/sprints/sprint-modal/sprint-modal.component';
+import { GraphComponent } from './components/graphs/graph/graph.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path: 'projects', component: ProjectPageComponent, /*canActivate: [AuthGuardService]*/},
   {path: 'sprints/:projectid', component: SprintPageComponent, canActivate: [AuthGuardService]},
   {path: 'userstories/:sprintid', component: UserstoryPageComponent, canActivate: [AuthGuardService]},
-
+  {path: 'graph/:sprintid', component: GraphComponent, canActivate: [AuthGuardService]},
   // test purpose only -------
   {path: 'sprintButton', component: SprintModalComponent},
   // {path: 'userButton', component: NewUserstoryButtonComponent},

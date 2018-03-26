@@ -9,7 +9,10 @@
   .btn-new-s:hover {
     color: var(--purple-glass);
   }
-  
+  .transparent {
+    background-color: transparent;
+  }
+
   hr {
     display: block;
     height: 1px;

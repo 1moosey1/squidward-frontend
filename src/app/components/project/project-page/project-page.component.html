@@ -8,12 +8,11 @@
 
       <hr/>
 
+      <app-alert *ngIf="displayMessage" [alertMessage]="alertMessage"></app-alert>
+
       <button class="btn btn-new" data-toggle="modal" data-target="#projectModal">
         <i class="fa fa-plus-circle fa-3x"></i>
       </button>
-
-      <app-alert *ngIf="displayMessage" [alertMessage]="alertMessage"></app-alert>
-
     </div>
   </div>
 

@@ -9,8 +9,6 @@ export class UserstoryListComponent implements OnInit {
 
   @Input()
   private userstories;
-  //@Input()
-  //private userstoryStatus;
 
   constructor() { }
 
