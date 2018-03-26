@@ -1,4 +1,4 @@
-export let multi = [
+export let multi2 = [
     {
       'name': 'Ideal',
       'series': [
