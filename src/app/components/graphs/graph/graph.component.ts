@@ -71,7 +71,7 @@ export class GraphComponent implements OnInit {
 
       for (let i = 0; i < res.dates.length; i++) {
         this.multi[0].series.push({
-          'name': moment(res.dates[i]).format('MM/DD/YYYY'),
+          'name': moment.utc(res.dates[i]).format('MM/DD/YYYY'),
           'value': sum
         });
         sum -= step;
@@ -79,7 +79,7 @@ export class GraphComponent implements OnInit {
 
       for (let i = 0; i < res.dates.length; i++) {
         this.multi[1].series.push({
-          'name': moment(res.dates[i]).format('MM/DD/YYYY'),
+          'name': moment.utc(res.dates[i]).format('MM/DD/YYYY'),
           'value': res.points[i]
         });
       }

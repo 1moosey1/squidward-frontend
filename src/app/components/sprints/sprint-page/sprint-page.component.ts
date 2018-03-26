@@ -34,10 +34,10 @@ export class SprintPageComponent implements OnInit {
       (res: Sprint[]) => {
         this.sprints = res.reverse();
         const sprintsize = this.sprints.length;
-        
+
         for (let i = 0; i < sprintsize; i++) {
-          this.sprints[i].startDate = moment(this.sprints[i].startDate).format('MM/DD/YYYY');
-          this.sprints[i].endDate = moment(this.sprints[i].endDate).format('MM/DD/YYYY');
+          this.sprints[i].startDate = moment.utc(this.sprints[i].startDate).format('MM/DD/YYYY');
+          this.sprints[i].endDate = moment.utc(this.sprints[i].endDate).format('MM/DD/YYYY');
         }
 
       },
