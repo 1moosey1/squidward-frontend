@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppRoutesModule } from './app-routes.module';
 import { JwtModule } from '@auth0/angular-jwt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 // Components
 import { ApiGlobals } from './utility/ApiGlobals';
@@ -29,6 +31,8 @@ import { UserstoryService } from './services/userstory-service/userstory.service
 import { SprintPageComponent } from './components/sprints/sprint-page/sprint-page.component';
 import { SprintModalComponent } from './components/sprints/sprint-modal/sprint-modal.component';
 import { GraphComponent } from './components/graphs/graph/graph.component';
+import { GraphService } from './services/graph/graph.service';
+import { DataComponent } from './components/graphs/data/data.component';
 
 function tokenGetter(): string {
   return localStorage.getItem(ApiGlobals.tokenName);
@@ -50,6 +54,7 @@ function tokenGetter(): string {
     UserstoryPageComponent,
     UserstoryModalComponent,
     GraphComponent,
+    DataComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,9 @@ function tokenGetter(): string {
         ],
         skipWhenExpired: true
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [
     ApiGlobals,
@@ -76,7 +83,8 @@ function tokenGetter(): string {
     AuthGuardService,
     ProjectService,
     SprintService,
-    UserstoryService
+    UserstoryService,
+    GraphService
   ],
   bootstrap: [AppComponent]
 })
