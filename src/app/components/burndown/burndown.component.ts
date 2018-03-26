@@ -12,13 +12,24 @@ import { multi} from './data';
   styleUrls: ['./burndown.component.css']
 })
 export class BurndownComponent implements OnInit  {
-  
+
   ngOnInit() {
   }
-  
-  multi: any[];
+   
+  single: any[];
+  multi = [
+    {
+      'name': 'Ideal',
+      'series': []
+    },
+    {
+      'name': 'Actual',
+      'series': []
+    }
+  ];
 
   view: any[] = [700, 400];
+
   
    // options
   showXAxis = true;
@@ -38,11 +49,55 @@ export class BurndownComponent implements OnInit  {
   autoScale = true;
   
   constructor() {
+
     Object.assign(this, { multi})   
   }
   
-  // onSelect(event) {
-  //   console.log(event);
-  // }
+
+  
+  onSelect(event) {
+    console.log(event);
+  }
+
+  count = 0;
+  
+  interval;
+  
+  startLiveData() {
+    
+    this.interval = setInterval(() => {
+      this.multi[1].series.push( {  'name': new Date(new Date().getTime() + (this.count * 60000)),
+                                    'value': this.randValue(), 'max': '', 'min': ''} );
+      this.count++;
+      this.multi = [...this.multi];
+    }, 1000);
+  }
+
+  stopLiveData() {
+    clearInterval(this.interval);
+    console.log('Live data stopped');
+  }
+  
+  randValue() {
+    return Math.floor(Math.random() * 100);
+  }
+
+  newValue(count)
+  {
+    return count -10 ;
+    
+  }
+
+ 
+  
+  initData() {
+    for(let i =0; i< 5; i++){
+      this.multi[0].series.push({
+        'name': new Date(new Date().getTime() + (this.count * 60000)),
+        'value':  this.newValue(50),
+    
+      });
+    }
+  }
   
 }
