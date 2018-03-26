@@ -32,7 +32,6 @@ import { SprintPageComponent } from './components/sprints/sprint-page/sprint-pag
 import { SprintModalComponent } from './components/sprints/sprint-modal/sprint-modal.component';
 import { GraphComponent } from './components/graphs/graph/graph.component';
 import { GraphService } from './services/graph/graph.service';
-import { DataComponent } from './components/graphs/data/data.component';
 
 function tokenGetter(): string {
   return localStorage.getItem(ApiGlobals.tokenName);
@@ -53,8 +52,7 @@ function tokenGetter(): string {
     UserstoryListComponent,
     UserstoryPageComponent,
     UserstoryModalComponent,
-    GraphComponent,
-    DataComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
