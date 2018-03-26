@@ -7,6 +7,12 @@
       <!-- added title -->
       <h3 class="dark-text seaweed title"><span class="proj-name" (click)="back()">{{ project.name }}</span> / Sprint {{ sprint.number }}</h3>
 
+      <!-- new -->
+      <ol class="breadcrumb transparent">
+        <li class="breadcrumb-item active"><a href="/sprints/{{project.id}}">{{project.name}}</a></li>
+        <li class="breadcrumb-item active">Sprint {{sprint.number}}</li>
+      </ol> 
+
       <hr/>
 
       <button class="btn btn-new-s" data-toggle="modal" data-target="#userstoryModal">

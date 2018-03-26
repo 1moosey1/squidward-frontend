@@ -8,6 +8,7 @@ import { UserstoryPageComponent } from './components/userstories/userstory-page/
 import { AuthGuardService } from './services/auth-guard-service/auth-guard.service';
 import { SprintPageComponent } from './components/sprints/sprint-page/sprint-page.component';
 import { SprintModalComponent } from './components/sprints/sprint-modal/sprint-modal.component';
+import { GraphComponent } from './components/graphs/graph/graph.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},

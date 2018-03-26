@@ -9,6 +9,11 @@
   color: var(--purple-glass);
 }
 
+/* new */
+.transparent {
+  background-color: transparent;
+}
+
 hr {
   display: block;
   height: 1px;

@@ -6,6 +6,11 @@
       <!-- added title -->
       <!-- added (click)="back()" -->
       <h3 class="dark-text seaweed title" (click)="back()">{{ project.name }}</h3>
+
+      <ol class="breadcrumb transparent">
+        <li class="breadcrumb-item active">{{project.name}}</li>
+      </ol> 
+
       <hr/>
 
       <button class="btn btn-new-s" data-toggle="modal" data-target="#projectModal">

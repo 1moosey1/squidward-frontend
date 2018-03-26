@@ -18,7 +18,11 @@
         <i class="fa fa-caret-right"></i>
         Date: {{ list.startDate }} -- {{ list.endDate }}
   
-      </div> 
-    </div>
+        <!-- new -->
+        <div (click) ="openGraph(list)">
+          <a href="/graph/{{list.id}}">Burn Down Chart</a>
+        </div>
+    </div> 
   </div>
+</div>
 
