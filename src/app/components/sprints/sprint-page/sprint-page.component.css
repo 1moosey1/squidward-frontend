@@ -2,12 +2,15 @@
     color: var(--color-2);
     background-color: transparent !important;
     outline: none !important;
-    padding-left: 95%;
     box-shadow: none;
   }
   
   .btn-new-s:hover {
     color: var(--purple-glass);
+  }
+
+  .transparent {
+    background-color: transparent;
   }
   
   .transparent {
@@ -22,4 +25,13 @@
     margin: 1em 0;
     padding: 0;
   }
+
+  /* added the following */
+.title {
+  color: var(--color-2);
+}
+
+.title:hover {
+  color: var(--purple-glass);
+}
   

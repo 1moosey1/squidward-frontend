@@ -2,7 +2,6 @@
   color: var(--color-2);
   background-color: transparent;
   outline: none !important;
-  padding-left: 95%;
   box-shadow: none;
 }
 
@@ -17,4 +16,9 @@ hr {
   border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0;
+}
+
+/* added the following */
+.title {
+  color: var(--color-2);
 }

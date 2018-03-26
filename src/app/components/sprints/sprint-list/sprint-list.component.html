@@ -1,17 +1,28 @@
 <div class="row text-center seaweed">
   <div *ngFor="let list of sprints" class="col-md-6 offset-md-3 project">
-    
-    <div class="project-inline"> 
-      <div (click)="openUserstories(list)">
-        <i class="fa fa-bar-chart-o"></i>
+    <!-- added rounded to class -->
+    <div class="project-inline rounded" (click)="openUserstories(list)">
+
+        <!-- added caret image -->
+        <i class="fa fa-caret-right"></i>
         Sprint {{ list.number }} <br/>
-        Release Sprint? {{list.release}} <br/>
-        {{list.startDate}} - {{list.endDate}} <br/>
-      </div> 
-      <div (click) ="openGraph(list)">
-        <a href="/graph/{{list.id}}">Burn Down Chart</a>
-      </div>
-    </div>
+  
+        <i class="fa fa-caret-right"></i>
+        Release sprint: 
+        <!-- added *ngIf -->
+        <span *ngIf="list.release == true">Yes</span>
+        <span *ngIf="list.release == false">No</span> <br/>
+        <!-- Release Sprint? {{ list.release }} <br/> -->
+  
+        <!-- added Date: -->
+        <i class="fa fa-caret-right"></i>
+        Date: {{ list.startDate }} -- {{ list.endDate }}
+  
+        <!-- new -->
+        <div (click) ="openGraph(list)">
+          <a href="/graph/{{list.id}}">Burn Down Chart</a>
+        </div>
+    </div> 
   </div>
 </div>
 

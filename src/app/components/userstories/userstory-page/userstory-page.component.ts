@@ -36,8 +36,7 @@ export class UserstoryPageComponent implements OnInit {
     this.userstoryService.getUserstories(this.sprintid, refresh).subscribe(
       (res: Userstory[]) => {
         this.userstories = res;
-        // this.userstoryStatus = this.userstories.status;
-        console.log(this.userstories);
+        // console.log(this.sprints);
       },
       () => {
         this.displayMessage = true;
@@ -54,6 +53,7 @@ export class UserstoryPageComponent implements OnInit {
         (res) => {
           this.displayMessage = true;
           this.alertMessage = 'user story added successfully';
+          console.log(res);
           this.loadUserstories(true);
         },
         () => {

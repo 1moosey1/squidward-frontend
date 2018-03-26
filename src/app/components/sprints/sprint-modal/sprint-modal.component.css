@@ -1,11 +1,20 @@
 .btn-submit {
-    color: var(--color-2);
-    background-color: transparent;
-  }
-  
-  .btn-submit:hover {
-    color: var(--purple-glass);
-  }
+  color: var(--color-2);
+  background-color: transparent;
+}
+
+.btn-submit:hover {
+  color: var(--purple-glass);
+}
+
+/* added the following */
+#projectModalLabel {
+  color: var(--color-2);
+}
+
+.date {
+  color: var(--color-2);
+}
   
   /*.btn-submit {*/
     /*color: var(--smoke);*/

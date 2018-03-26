@@ -85,6 +85,8 @@ export class SprintPageComponent implements OnInit {
     }
   }
 
-
+  back() {
+    this.router.navigate(['/projects']);
+  }
 
 }

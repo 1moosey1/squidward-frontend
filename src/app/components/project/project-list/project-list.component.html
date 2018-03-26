@@ -1,6 +1,7 @@
 <div class="row text-center seaweed">
   <div *ngFor="let project of projects" class="col-md-3 project">
-    <div class="project-inline" (click)="openProject(project)">
+    <!-- added rounded to class -->
+    <div class="project-inline rounded" (click)="openProject(project)">
       <i class="fa fa-bar-chart-o"></i>
       {{ project.name }}
     </div>

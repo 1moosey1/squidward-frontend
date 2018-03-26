@@ -1,28 +1,34 @@
-  .btn-new-s {
-    color: var(--color-2);
-    background-color: transparent !important;
-    outline: none !important;
-    padding-left: 95%;
-    box-shadow: none;
-  }
-  
-  .btn-new-s:hover {
-    color: var(--purple-glass);
-  }
-  .transparent {
-    background-color: transparent;
-  }
+.btn-new-s {
+  color: var(--color-2);
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none;
+}
 
-  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-  }
+.btn-new-s:hover {
+  color: var(--purple-glass);
+}
+
+/* new */
+.transparent {
+  background-color: transparent;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
 
 .proj-name:hover {
   color: var(--purple-glass);
+}
+
+/* added the following */
+.title {
+  color: var(--color-2);
 }
   
