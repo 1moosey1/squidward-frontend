@@ -20,6 +20,7 @@ export class SprintListComponent implements OnInit {
 
   openUserstories(sprint) {
     this.sprintService.setSprint(sprint);
+    console.log(this.sprintService.getSprint());
     this.router.navigate(['/userstories', sprint.id]);
   }
 

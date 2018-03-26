@@ -1,10 +1,10 @@
 
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { Router } from '@angular/router';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import {single, multi} from './data';
+import { multi} from './data';
 
 @Component({
   selector: 'app-burndown',
@@ -15,8 +15,7 @@ export class BurndownComponent implements OnInit  {
   
   ngOnInit() {
   }
-   
-  single: any[];
+  
   multi: any[];
 
   view: any[] = [700, 400];
@@ -39,11 +38,11 @@ export class BurndownComponent implements OnInit  {
   autoScale = true;
   
   constructor() {
-    Object.assign(this, {single, multi})   
+    Object.assign(this, { multi})   
   }
   
-  onSelect(event) {
-    console.log(event);
-  }
+  // onSelect(event) {
+  //   console.log(event);
+  // }
   
 }

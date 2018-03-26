@@ -43,3 +43,9 @@ package-lock.json
 # System Files
 .DS_Store
 Thumbs.db
+src/app/components/burndown/burndown.component.ts
+src/app/components/sprints/sprint-list/sprint-list.component.ts
+src/app/components/burndown/burndown.component.ts
+src/app/components/burndown/data.ts
+src/app/components/sprints/sprint-page/sprint-page.component.ts
+src/app/services/sprint-service/sprint-service.service.ts
