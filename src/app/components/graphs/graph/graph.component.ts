@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { multi2 } from '../data';
 import 'rxjs/add/operator/map';
 import * as moment from 'moment';
+import { ProjectService } from '../../../services/project-service/project.service';
+import { SprintService } from '../../../services/sprint-service/sprint-service.service';
 
 @Component({
   selector: 'app-graph',
@@ -19,6 +21,8 @@ export class GraphComponent implements OnInit {
   private data;
   private sprintid;
   private sprintLength;
+  private project;
+  private sprint;
 
   view: any[] = [700, 400];
 
@@ -49,10 +53,13 @@ export class GraphComponent implements OnInit {
 
   autoScale = true;
 
-  constructor(private graphService: GraphService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private graphService: GraphService, private router: Router, private route: ActivatedRoute,
+              private projectService: ProjectService, private sprintService: SprintService) {}
 
   ngOnInit() {
     this.sprintid = this.route.snapshot.paramMap.get('sprintid');
+    this.project = this.projectService.getProject();
+    this.sprint = this.sprintService.getSprint();
     this.showdate();
   }
 
@@ -78,6 +85,7 @@ export class GraphComponent implements OnInit {
       }
 
       this.multi = [...this.multi];
+      console.log(this.multi);
     })
     .catch( res => {
       console.log(res);

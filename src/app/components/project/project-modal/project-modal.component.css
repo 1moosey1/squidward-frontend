@@ -7,6 +7,10 @@
   color: var(--purple-glass);
 }
 
+#projectModalLabel {
+  color: var(--color-2);
+}
+
 /*.btn-submit {*/
   /*color: var(--smoke);*/
   /*background-color: var(--color-2);*/

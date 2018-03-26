@@ -13,3 +13,12 @@ body{
     text-rendering: optimizeLegibility;
     margin: 20px
  }
+
+ .center {
+    align-content: center;
+    text-align: center;
+ }
+
+ .transparent {
+     background: transparent;
+ }

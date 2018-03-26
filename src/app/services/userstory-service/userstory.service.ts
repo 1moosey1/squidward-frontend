@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../auth-service/auth.service';
-
+import { ApiGlobals } from '../../utility/ApiGlobals';
 @Injectable()
 export class UserstoryService {
   private userstories = 'userstoryInfo';
@@ -11,7 +11,7 @@ export class UserstoryService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   newUserstories(sprint, story, difficulty): Observable<any> {
-    return this.http.post('http://localhost:8080/api/userstory/new',
+    return this.http.post(ApiGlobals.apiRoot + '/api/userstory/new',
                     {'story': story, 'difficulty': difficulty, 'sprint': {id: sprint.id}});
   }
 
@@ -21,7 +21,7 @@ export class UserstoryService {
       const userstories = localStorage.getItem(this.userstories);
 
       if (refresh || !userstories) {
-        this.http.get(`http://localhost:8080/api/userstory/${sprintid}`)
+        this.http.get(ApiGlobals.apiRoot + `/api/userstory/${sprintid}`)
         .subscribe(
           userstoriez => {
             localStorage.setItem(this.userstories, JSON.stringify(userstoriez));

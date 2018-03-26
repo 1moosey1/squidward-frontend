@@ -2,16 +2,17 @@
   <!-- TODO -->
   <div *ngFor="let list of userstories" class="col-md-4 project">
     <div class="project-inline">
-      <i class="fa fa-bar-chart-o"></i>
       <span *ngIf="list.status.statusType == 'DONE'" class="badge badge-pill badge-success">Done</span>
       <span *ngIf="list.status.statusType == 'TODO'" class="badge badge-pill badge-danger">To Do</span>
       <span *ngIf="list.status.statusType == 'IN PROGRESS'" class="badge badge-pill badge-warning">In Progress</span>
       <br/> {{ list.story }} <br/>
-      Start tag: {{ list.startTag }} <br/>
-      End tag: {{ list.doneTag }} <br/>
+      Start tag: tag:<{{ list.startTag }}> <br/>
+      End tag: tag:<{{ list.doneTag }}> <br/>
       Difficulty: {{ list.difficulty }} <br/>
-      <span *ngIf="list.startURL != null">Start URL: {{ list.startURL }}<br/></span>
-      <span *ngIf="list.endURL != null">End URL: {{ list.endURL }}</span>
+
+      <span *ngIf="list.startUrl !== null">Start URL: <a href="{{ list.startUrl }}" > Commit </a> </span>
+      <span *ngIf="list.doneUrl !== null">End URL: <a href="{{ list.doneUrl }}" > Commit </a></span>
+
     </div> 
   </div>
   <br/>

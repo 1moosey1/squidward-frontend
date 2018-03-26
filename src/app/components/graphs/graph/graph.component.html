@@ -1,8 +1,14 @@
-<p>
-  graph works!
-</p>
+<app-navbar></app-navbar>
 
+<ol class="breadcrumb transparent">
+    <li class="breadcrumb-item active"><a href="/sprints/{{project.id}}">{{project.name}}</a></li>
+    <li class="breadcrumb-item active"><a href="/userstories/{{sprint.id}}">Sprint {{sprint.number}}</a></li>
+    <li class="breadcrumb-item active">Burn Down Chart</li>
+  </ol>    
 
+<hr/>
+
+<div style="width: 50%; margin: 0 auto; margin-top: 5%">
 <ngx-charts-line-chart
   [view]="view"
   [scheme]="colorScheme"
@@ -18,3 +24,4 @@
   [autoScale]="autoScale"
   (select)="onSelect($event)">
 </ngx-charts-line-chart>
+</div>

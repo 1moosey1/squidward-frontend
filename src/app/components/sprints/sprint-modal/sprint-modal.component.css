@@ -6,6 +6,14 @@
   .btn-submit:hover {
     color: var(--purple-glass);
   }
+
+  #projectModalLabel {
+    color: var(--color-2);
+  }
+  
+  .date {
+    color: var(--color-2);
+  }
   
   /*.btn-submit {*/
     /*color: var(--smoke);*/

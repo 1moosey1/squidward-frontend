@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { ProjectService } from '../project-service/project.service';
 import Sprint from '../../utility/Sprint';
 import { AuthService } from '../auth-service/auth.service';
+import { ApiGlobals } from '../../utility/ApiGlobals';
 
 @Injectable()
 export class SprintService {
@@ -14,7 +15,7 @@ export class SprintService {
 
   addNewSprint(sprint_number, project, release, start_date, end_date): Observable<any> {
     console.log(start_date);
-    return this.http.post('http://localhost:8080/api/sprint/new', 
+    return this.http.post(ApiGlobals.apiRoot + '/api/sprint/new', 
                         {'number': sprint_number, 'project': {id: project.id}, 'release': release, 
                         'startDate': start_date, 'endDate': end_date});
   }
@@ -24,7 +25,7 @@ export class SprintService {
       const sprints = localStorage.getItem(this.sprints);
 
       if (refresh || !sprints) {
-        this.http.get(`http://localhost:8080/api/sprint/${projectid}`)
+        this.http.get(ApiGlobals.apiRoot + `/api/sprint/${projectid}`)
         .subscribe(
           sprintz => {
             localStorage.setItem(this.sprints, JSON.stringify(sprintz));
