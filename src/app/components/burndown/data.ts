@@ -1,6 +1,10 @@
 
 export var single = [
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   {
     "name": "",
     "value": 0

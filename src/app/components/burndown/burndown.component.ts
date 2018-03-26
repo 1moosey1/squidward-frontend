@@ -51,6 +51,10 @@ export class BurndownComponent implements OnInit  {
   constructor() {
 
     Object.assign(this, { multi})   
+
+    this.initData();
+
+    
   }
   
 
